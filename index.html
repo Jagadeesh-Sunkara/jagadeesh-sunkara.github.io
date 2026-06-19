@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jagadeesh Chandra Prasad Sunkara — Software Engineer | Investment & Financial Technology</title>
 <meta name="description" content="Software Engineer with 5+ years across private credit, investment operations, and AI automation. Currently at MGG Investment Group, New York.">
+<!-- Social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jagadeesh-sunkara.github.io/">
+<meta property="og:title" content="Jagadeesh Sunkara — Software Engineer | Investment & Financial Technology">
+<meta property="og:description" content="5+ years building private-credit platforms, AI agents, and data systems. Explore my work, skills, and projects.">
+<meta property="og:image" content="https://jagadeesh-sunkara.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jagadeesh Sunkara — Software Engineer | Fintech & AI">
+<meta name="twitter:description" content="5+ years building private-credit platforms, AI agents, and data systems.">
+<meta name="twitter:image" content="https://jagadeesh-sunkara.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -46,7 +58,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
   padding:18px 28px;backdrop-filter:blur(12px);background:linear-gradient(180deg,rgba(7,11,20,.85),rgba(7,11,20,0));
   transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(7,11,20,.92);border-bottom:1px solid var(--line)}
-.brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.5px;display:flex;align-items:center;gap:9px}
+.brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.5px;display:flex;align-items:center;gap:9px;background:none;border:none;color:var(--ink);cursor:pointer;padding:0;transition:color .2s}
+.brand:hover{color:var(--accent)}
+.nav-icons{display:flex;align-items:center;gap:6px}
+.nav-ic{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;transition:all .2s}
+.nav-ic svg{width:15px;height:15px;fill:var(--ink-dim);transition:fill .2s}
+.nav-ic:hover{border-color:var(--accent);background:rgba(74,222,128,.08)}
+.nav-ic:hover svg{fill:var(--accent)}
+.nav-ic::after{display:none!important}
 .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .nav-links{display:flex;gap:22px;align-items:center}
@@ -166,12 +185,14 @@ section{padding:100px 0;position:relative;z-index:2}
 .skill-card h4{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;display:flex;align-items:center;gap:9px}
 .logo-grid{display:flex;flex-wrap:wrap;gap:10px}
 .logo-chip{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:rgba(120,160,220,.04);cursor:default;transition:transform .2s,border-color .2s,background .2s}
-.logo-chip svg{width:17px;height:17px;fill:var(--ink-dim);transition:fill .2s,transform .25s}
+.logo-chip svg{width:17px;height:17px;fill:var(--ink-dim);transition:fill .2s,stroke .2s,transform .25s}
+.logo-chip svg.stroke{fill:none;stroke:var(--ink-dim);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.logo-chip.dom svg{width:12px;height:12px;opacity:.7}
 .logo-chip span{font-family:var(--mono);font-size:12px;color:var(--ink-dim);transition:color .2s}
 .logo-chip:hover{transform:translateY(-3px);background:rgba(120,160,220,.09)}
 .logo-chip:hover span{color:var(--ink)}
 .logo-chip:hover svg{transform:scale(1.15) rotate(-4deg)}
-.logo-chip.domain svg{display:none}
+.logo-chip.dom span{color:var(--ink-dim)}
 
 /* EDU */
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -217,6 +238,8 @@ section{padding:100px 0;position:relative;z-index:2}
 .contact-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:48px}
 .contact-links a{font-family:var(--mono);font-size:13.5px;color:var(--ink-dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:8px}
 .contact-links a:hover{color:var(--accent)}
+.contact-links .cl-ic{width:16px;height:16px;fill:var(--ink-faint);transition:fill .2s}
+.contact-links a:hover .cl-ic{fill:var(--accent)}
 .contact-links .k{color:var(--ink-faint)}
 footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;position:relative;z-index:2}
 footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
@@ -224,6 +247,7 @@ footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
 @media(max-width:860px){
   .nav-links{position:fixed;top:62px;right:14px;flex-direction:column;background:var(--panel);border:1px solid var(--line-strong);border-radius:12px;padding:18px 22px;gap:18px;align-items:flex-start;display:none;box-shadow:0 20px 50px rgba(0,0,0,.5)}
   .nav-links.open{display:flex}
+  .nav-icons{gap:10px}
   .menu-btn{display:block}
   #bg3d{width:100vw}
   .metrics{grid-template-columns:repeat(2,1fr)}
@@ -253,7 +277,7 @@ footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
 <div id="progress"></div>
 
 <nav id="nav">
-  <div class="brand"><span class="dot"></span>JCP.SUNKARA</div>
+  <button class="brand" id="brandTop" aria-label="Back to top"><span class="dot"></span>JCP.SUNKARA</button>
   <button class="menu-btn" id="menuBtn">MENU</button>
   <div class="nav-links" id="navLinks">
     <a href="#experience">Experience</a>
@@ -261,6 +285,10 @@ footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
     <a href="#skills">Skills</a>
     <a href="#recommendations">Recommendations</a>
     <a href="Jagadeesh_Sunkara_Resume.pdf" download>Résumé ↓</a>
+    <span class="nav-icons">
+      <a href="https://www.linkedin.com/in/jagadeesh-sunkara/" target="_blank" rel="noopener" class="nav-ic" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a href="https://github.com/Jagadeesh-Sunkara" target="_blank" rel="noopener" class="nav-ic" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg></a>
+    </span>
     <a href="#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
@@ -562,14 +590,14 @@ footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
       <a class="btn btn-ghost" href="tel:+16673912368">Call · 667-391-2368</a>
     </div>
     <div class="contact-links">
-      <a href="mailto:sunkara.jagadeesh11@gmail.com"><span class="k">email/</span>sunkara.jagadeesh11@gmail.com</a>
-      <a href="https://www.linkedin.com/in/jagadeesh-sunkara/" target="_blank" rel="noopener"><span class="k">linkedin/</span>jagadeesh-sunkara</a>
-      <a href="https://github.com/Jagadeesh-Sunkara" target="_blank" rel="noopener"><span class="k">github/</span>Jagadeesh-Sunkara</a>
+      <a href="mailto:sunkara.jagadeesh11@gmail.com"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5zm2 1.4V18h16V6.4l-8 5.5-8-5.5zM4.8 6 12 11l7.2-5H4.8z"/></svg><span class="k">email/</span>sunkara.jagadeesh11@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jagadeesh-sunkara/" target="_blank" rel="noopener"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span class="k">linkedin/</span>jagadeesh-sunkara</a>
+      <a href="https://github.com/Jagadeesh-Sunkara" target="_blank" rel="noopener"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg><span class="k">github/</span>Jagadeesh-Sunkara</a>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap"><p>// Designed &amp; engineered for Jagadeesh Chandra Prasad Sunkara · New York · 2026</p></div></footer>
+<footer><div class="wrap"><p>Jagadeesh Chandra Prasad Sunkara</p></div></footer>
 
 <script type="module">
 const ICONS={
@@ -723,16 +751,35 @@ const SKILLS=[
   {h:"Cloud & DevOps",icons:["docker","git","github","jira","postman"],domain:["Azure","Azure Data Factory","AWS","CI/CD","Agile"]},
   {h:"Analytics & Data",icons:["python","r","pandas","numpy","apachespark","tableau"],domain:["Power BI"]},
 ];
+/* custom glyphs for tools/domains not in the logo set (brand color on hover) */
+const EXTRA={
+  "sqlserver":{l:"SQL Server",c:"#CC2927",d:"M12 2C7 2 3 3.3 3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5c0-1.7-4-3-9-3zm0 2c4.4 0 7 1.1 7 1.8S16.4 7.6 12 7.6 5 6.5 5 5.8 7.6 4 12 4zm7 4.2V11c0 .7-2.6 1.8-7 1.8S5 11.7 5 11V8.2C6.6 9.2 9.2 9.6 12 9.6s5.4-.4 7-1.4zm0 5V16c0 .7-2.6 1.8-7 1.8S5 16.7 5 16v-2.8c1.6 1 4.2 1.4 7 1.4s5.4-.4 7-1.4z"},
+  "powerbi":{l:"Power BI",c:"#F2C811",d:"M4 21V9h4v12H4zm6 0V3h4v18h-4zm6 0v-8h4v8h-4z"},
+  "azure":{l:"Azure",c:"#0078D4",d:"M13.3 3.5 7 20.5h5.2l1.3-3.7H8.9l4.4-13.3zM14.6 7l-2 5.7h4.3L21 20.5h-6.7l-2.1-6 2.4-7.5z"},
+  "datafactory":{l:"Azure Data Factory",c:"#0078D4",d:"M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.3 6.5 3.6L12 11.5 5.5 7.9 12 4.3zM5 9.3l6 3.3v6.8l-6-3.3V9.3zm14 0v6.8l-6 3.3v-6.8l6-3.3z"},
+  "aws":{l:"AWS",c:"#FF9900",d:"M6.8 10.3c0 .3 0 .5.1.7l.3.6q.05.1.05.2c0 .1-.1.2-.2.3l-.5.3h-.2c-.1 0-.2 0-.3-.1l-.4-.5-.3-.5c-.7.8-1.5 1.2-2.5 1.2-.7 0-1.3-.2-1.7-.6s-.6-1-.6-1.6q0-1.05.75-1.7c.5-.4 1.2-.6 2.1-.6q.45 0 .9.06l.95.2v-.6c0-.6-.1-1-.4-1.3-.3-.2-.7-.3-1.3-.3q-.45 0-.9.1l-.9.3-.3.1h-.15c-.15 0-.2-.1-.2-.3v-.4q0-.2.1-.3l.25-.15a5 5 0 0 1 1.1-.4q.65-.15 1.3-.15c1 0 1.8.2 2.2.7.5.5.7 1.1.7 2.1v2.8zm-3.4 1.3q.45 0 .9-.15.45-.15.8-.55.2-.25.3-.55t.1-.75v-.35l-.75-.15h-.8q-.8 0-1.2.3c-.3.2-.4.5-.4.9s.1.65.3.85.5.25.75.25zm6.8.9c-.15 0-.25 0-.3-.1l-.2-.3-1.9-6.4q-.05-.2-.05-.3c0-.15.05-.2.2-.2h.8q.2 0 .3.1l.15.3 1.4 5.4 1.3-5.4q.05-.2.15-.3.1-.1.3-.1h.65q.2 0 .3.1.1.1.15.3l1.3 5.5 1.4-5.5q.05-.2.15-.3.1-.1.3-.1h.75c.15 0 .2.05.2.2v.15l-.05.15-2 6.4-.2.3q-.1.1-.3.1h-.7q-.2 0-.3-.1-.1-.1-.15-.3l-1.3-5.3-1.3 5.3q-.05.2-.15.3-.1.1-.3.1h-.7zm10.9.2q-.65 0-1.3-.15-.65-.15-1-.35-.2-.1-.25-.2-.05-.1-.05-.25v-.4q0-.25.2-.25h.15l.25.1q.45.2.95.3.5.1 1 .1.8 0 1.2-.3.45-.3.45-.8 0-.35-.2-.55-.25-.25-.85-.45l-1.2-.4q-.9-.3-1.35-.85-.4-.5-.4-1.2 0-.5.2-.9.25-.4.6-.7.4-.3.9-.45.5-.15 1.05-.15.3 0 .55.05l.55.1.5.15.35.15q.15.1.2.2.05.1.05.25v.35q0 .25-.2.25-.1 0-.3-.1-.7-.3-1.55-.3-.7 0-1.1.25-.4.2-.4.65 0 .35.25.6.25.2.9.45l1.15.35q.9.3 1.3.8.4.5.4 1.15 0 .55-.2 1-.25.4-.65.75-.4.3-.95.45-.55.2-1.2.2z"},
+  "etl":{l:"ETL",c:"#38bdf8",d:"M4 5h16M4 5l3-3M4 5l3 3M20 12H4m16 0-3-3m3 3-3 3M4 19h16m-16 0 3-3m-3 3 3 3"},
+  "cicd":{l:"CI/CD",c:"#4ade80",d:"M12 4a8 8 0 1 0 7.5 5.3M12 4V1M12 4l3 2M4 12H1m18.5-2.7L22 8"},
+  "dot":{l:"",c:"#4ade80",d:"M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"}
+};
+function glyph(o,stroke){return `<svg viewBox="0 0 24 24" aria-hidden="true"${stroke?' class="stroke"':''}><path d="${o.d}"/></svg>`;}
 function svgFor(slug){const ic=ICONS[slug];if(!ic)return'';return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ic.d}"/></svg>`;}
 const grid=document.getElementById('skillsGrid');
+// map some domain labels to custom glyphs
+const DOMAIN_ICON={"SQL Server":"sqlserver","Power BI":"powerbi","Azure":"azure","Azure Data Factory":"datafactory","AWS":"aws","ETL":"etl","CI/CD":"cicd"};
 SKILLS.forEach(cat=>{let chips='';
   (cat.icons||[]).forEach(slug=>{const ic=ICONS[slug];if(!ic)return;chips+=`<div class="logo-chip" data-c="${ic.c}">${svgFor(slug)}<span>${ic.l}</span></div>`;});
-  (cat.domain||[]).forEach(label=>{chips+=`<div class="logo-chip domain"><span>${label}</span></div>`;});
+  (cat.domain||[]).forEach(label=>{
+    const ex=DOMAIN_ICON[label]&&EXTRA[DOMAIN_ICON[label]];
+    if(ex){const stroke=["etl","cicd"].includes(DOMAIN_ICON[label]);
+      chips+=`<div class="logo-chip" data-c="${ex.c}" data-stroke="${stroke?1:0}">${glyph(ex,stroke)}<span>${label}</span></div>`;}
+    else{chips+=`<div class="logo-chip dom" data-c="#4ade80">${glyph(EXTRA.dot,false)}<span>${label}</span></div>`;}
+  });
   grid.insertAdjacentHTML('beforeend',`<div class="skill-card reveal"><h4>◆ ${cat.h}</h4><div class="logo-grid">${chips}</div></div>`);
 });
-document.querySelectorAll('.logo-chip[data-c]').forEach(chip=>{const c=chip.dataset.c,svg=chip.querySelector('svg');
-  chip.addEventListener('pointerenter',()=>{svg.style.fill=c;chip.style.borderColor=c;});
-  chip.addEventListener('pointerleave',()=>{svg.style.fill='';chip.style.borderColor='';});});
+document.querySelectorAll('.logo-chip[data-c]').forEach(chip=>{const c=chip.dataset.c,svg=chip.querySelector('svg');const isStroke=svg&&svg.classList.contains('stroke');
+  chip.addEventListener('pointerenter',()=>{if(svg){if(isStroke)svg.style.stroke=c;else svg.style.fill=c;}chip.style.borderColor=c;});
+  chip.addEventListener('pointerleave',()=>{if(svg){svg.style.stroke='';svg.style.fill='';}chip.style.borderColor='';});});
 
 /* ============ RECOMMENDATIONS — short, role-only ============ */
 const RECS=[
@@ -806,6 +853,8 @@ const mio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.t
 mio.observe(document.getElementById('metrics'));
 
 const mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+const brandTop=document.getElementById('brandTop');
+if(brandTop) brandTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 mb.addEventListener('click',()=>nl.classList.toggle('open'));
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
 </script>
