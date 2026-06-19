@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jagadeesh Chandra Prasad Sunkara — Software Engineer | Investment & Financial Technology</title>
+<meta name="description" content="Software Engineer with 5+ years across private credit, investment operations, and AI automation. Currently at MGG Investment Group, New York.">
+<!-- Social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jagadeesh-sunkara.github.io/">
+<meta property="og:title" content="Jagadeesh Sunkara — Software Engineer | Investment & Financial Technology">
+<meta property="og:description" content="5+ years building private-credit platforms, AI agents, and data systems. Explore my work, skills, and projects.">
+<meta property="og:image" content="https://jagadeesh-sunkara.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jagadeesh Sunkara — Software Engineer | Fintech & AI">
+<meta name="twitter:description" content="5+ years building private-credit platforms, AI agents, and data systems.">
+<meta name="twitter:image" content="https://jagadeesh-sunkara.github.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14; --bg-2:#0b1120; --panel:#0f1828;
+  --line:rgba(120,160,220,0.12); --line-strong:rgba(120,160,220,0.28);
+  --ink:#e8eef8; --ink-dim:#8593a8; --ink-faint:#5a6678;
+  --accent:#4ade80; --accent-2:#38bdf8; --accent-3:#fbbf24; --loss:#f87171; --violet:#a78bfa;
+  --scene:#4ade80;
+  --mono:"JetBrains Mono",monospace; --sans:"Space Grotesk",sans-serif; --serif:"Instrument Serif",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.35;
+  mask-image:radial-gradient(ellipse 100% 55% at 50% 0%,#000 25%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 100% 55% at 50% 0%,#000 25%,transparent 75%);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:60;box-shadow:0 0 12px var(--accent)}
+
+/* preloader */
+#loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .8s,visibility .8s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .lname{font-family:var(--mono);font-size:13px;letter-spacing:4px;color:var(--ink-dim);text-transform:uppercase}
+#loader .lbar{width:170px;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+#loader .lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .3s}
+#loader .lpct{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+/* 3D sphere — fixed to the RIGHT side, behind content, never over text */
+#bg3d{position:fixed;top:0;right:0;width:62vw;height:100vh;z-index:0;pointer-events:none;transition:opacity .4s ease;
+  mask-image:radial-gradient(ellipse 72% 82% at 72% 45%,#000 38%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 72% 82% at 72% 45%,#000 38%,transparent 80%);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 28px;backdrop-filter:blur(12px);background:linear-gradient(180deg,rgba(7,11,20,.85),rgba(7,11,20,0));
+  transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(7,11,20,.92);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.5px;display:flex;align-items:center;gap:9px;background:none;border:none;color:var(--ink);cursor:pointer;padding:0;transition:color .2s}
+.brand:hover{color:var(--accent)}
+.nav-icons{display:flex;align-items:center;gap:6px}
+.nav-ic{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;transition:all .2s}
+.nav-ic svg{width:15px;height:15px;fill:var(--ink-dim);transition:fill .2s}
+.nav-ic:hover{border-color:var(--accent);background:rgba(74,222,128,.08)}
+.nav-ic:hover svg{fill:var(--accent)}
+.nav-ic::after{display:none!important}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:var(--ink-dim);text-decoration:none;font-size:13px;font-family:var(--mono);transition:color .2s;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent);transition:width .25s}
+.nav-links a:not(.nav-cta):hover::after{width:100%}
+.nav-cta{padding:8px 16px;border:1px solid var(--line-strong);border-radius:6px;color:var(--ink)!important}
+.nav-cta:hover{background:var(--accent);color:#04140a!important;border-color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-strong);border-radius:6px;color:var(--ink);font-family:var(--mono);font-size:12px;padding:7px 11px;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:90px;padding-bottom:40px;position:relative}
+.hero-inner{max-width:680px}
+.hero-eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px;opacity:0}
+.hero-eyebrow .bar{height:1px;width:40px;background:var(--accent)}
+h1.hero-name{font-weight:700;font-size:clamp(40px,7vw,84px);line-height:1;letter-spacing:-2.5px;margin-bottom:8px}
+h1.hero-name .ln{display:block;overflow:hidden}
+h1.hero-name .ln span{display:block;transform:translateY(110%)}
+.hero-name .accent{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-role{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,33px);color:var(--ink-dim);margin-top:16px;margin-bottom:26px;opacity:0}
+.hero-role b{color:var(--ink);font-style:normal;font-family:var(--sans);font-weight:500}
+.hero-desc{max-width:560px;color:var(--ink-dim);font-size:16.5px;margin-bottom:36px;opacity:0}
+.hero-desc b{color:var(--ink);font-weight:500}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;opacity:0}
+.scroll-hint{position:absolute;bottom:22px;left:28px;font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--ink-faint);text-transform:uppercase;display:flex;align-items:center;gap:12px;opacity:0}
+.scroll-hint .mouse{width:22px;height:34px;border:1.5px solid var(--ink-faint);border-radius:12px;position:relative}
+.scroll-hint .mouse::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:var(--accent);border-radius:2px;animation:scrolldot 1.6s infinite}
+@keyframes scrolldot{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}80%{opacity:0;transform:translate(-50%,10px)}}
+
+.btn{font-family:var(--mono);font-size:13.5px;padding:13px 22px;border-radius:8px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;transition:all .2s}
+.btn-primary{background:var(--accent);color:#04140a;font-weight:600}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px var(--accent)}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-2px)}
+.btn-violet{border-color:rgba(167,139,250,.4);color:var(--violet)}
+.btn-violet:hover{background:var(--violet);color:#1a1030;border-color:var(--violet);transform:translateY(-2px)}
+
+/* metrics — 5 tiles */
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);margin-top:50px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(15,24,40,.85),rgba(15,24,40,.5));backdrop-filter:blur(8px);opacity:0;max-width:880px}
+.metric{padding:20px 20px;border-right:1px solid var(--line)}
+.metric:last-child{border-right:none}
+.metric .label{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;color:var(--ink-faint);text-transform:uppercase;margin-bottom:10px}
+.metric .value{font-weight:700;font-size:30px;letter-spacing:-1px;line-height:1}
+.metric .value .suf{color:var(--accent);font-size:20px}
+.metric .sub{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);margin-top:7px}
+
+/* SECTION */
+section{padding:100px 0;position:relative;z-index:2}
+.sec-head{margin-bottom:48px}
+.sec-tag{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--accent-2);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sec-tag .num{color:var(--ink-faint)}
+.sec-tag .bar{height:1px;width:36px;background:var(--accent-2)}
+.sec-title{font-weight:700;font-size:clamp(30px,4.5vw,50px);letter-spacing:-1.5px;line-height:1.05}
+.sec-title .ital{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink-dim)}
+.sec-sub{color:var(--ink-dim);max-width:580px;margin-top:16px;font-size:16px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* EXPERIENCE timeline */
+.exp{display:grid;grid-template-columns:210px 1fr;gap:36px;padding:32px 0;border-top:1px solid var(--line);position:relative}
+.exp:hover .exp-co{color:var(--accent)}
+.exp-meta .exp-date{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+.exp-meta .exp-loc{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:5px}
+.exp-meta .exp-kind{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-top:10px;border:1px solid var(--line);border-radius:5px;padding:3px 7px;display:inline-block}
+.exp-co{font-weight:700;font-size:22px;letter-spacing:-.5px;transition:color .25s}
+.exp-title{font-family:var(--mono);font-size:13px;color:var(--accent-2);margin-top:3px;margin-bottom:14px}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:9px}
+.exp-points li{position:relative;padding-left:22px;color:var(--ink-dim);font-size:14.5px}
+.exp-points li::before{content:"▹";position:absolute;left:0;color:var(--accent);font-size:13px}
+.exp-points li b{color:var(--ink);font-weight:500}
+.exp-sub-tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-3);margin:18px 0 12px;display:flex;align-items:center;gap:10px}
+.exp-sub-tag .bar{height:1px;width:24px;background:var(--accent-3)}
+.exp-role-date{color:var(--ink-faint);font-weight:400}
+.exp-role-blk + .exp-role-blk{padding-top:18px;border-top:1px dashed var(--line)}
+
+/* ===== WORK — visual left (sticky, changes per project) + tiles right ===== */
+#worktag{padding-bottom:0}
+#work-stage{position:relative}
+.work-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.work-visual{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.work-visual .vis-frame{width:100%;max-width:460px}
+.work-visual .vis-cap{text-align:center}
+.work-visual .vis-cap .tag{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--scene);display:block;margin-bottom:6px;transition:color .4s}
+.work-visual .vis-cap .ttl{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--ink);transition:opacity .4s}
+.work-tiles{display:flex;flex-direction:column;gap:46vh;padding:30vh 0}
+.work-tile{border:1px solid var(--line);border-radius:14px;padding:26px;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,rgba(15,24,40,.78),rgba(11,17,32,.62));backdrop-filter:blur(8px);
+  transition:transform .35s,border-color .35s,box-shadow .35s;display:flex;flex-direction:column}
+.work-tile.active{box-shadow:0 20px 60px -28px rgba(0,0,0,.7)}
+.work-tile .corner{position:absolute;width:14px;height:14px;border-color:var(--line-strong);pointer-events:none}
+.work-tile .corner.tl{top:12px;left:12px;border-top:1px solid;border-left:1px solid}
+.work-tile .corner.tr{top:12px;right:12px;border-top:1px solid;border-right:1px solid}
+.work-tile .corner.bl{bottom:12px;left:12px;border-bottom:1px solid;border-left:1px solid}
+.work-tile .corner.br{bottom:12px;right:12px;border-bottom:1px solid;border-right:1px solid}
+.work-tile.active{border-color:var(--scene)}
+.work-tile .w-idx{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--ink-faint)}
+.work-tile h3{font-weight:700;font-size:22px;letter-spacing:-.6px;margin:11px 0 6px;line-height:1.15}
+.work-tile h3 .em{color:var(--scene);transition:color .4s}
+.work-tile .w-sub{font-family:var(--mono);font-size:12.5px;color:var(--scene);margin-bottom:16px;transition:color .4s}
+.work-tile p{color:var(--ink-dim);font-size:14.5px;margin-bottom:14px}
+.work-tile p b{color:var(--ink);font-weight:500}
+.work-tile ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.work-tile li{position:relative;padding-left:20px;color:var(--ink-dim);font-size:14px}
+.work-tile li::before{content:"▹";position:absolute;left:0;color:var(--scene);transition:color .4s}
+.work-tile li b{color:var(--ink);font-weight:500}
+.tech-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.chip{font-family:var(--mono);font-size:11px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;color:var(--ink-dim);background:rgba(56,189,248,.04);transition:all .2s}
+.chip:hover{border-color:var(--scene);color:var(--ink)}
+.w-link{font-family:var(--mono);font-size:12.5px;color:var(--scene);text-decoration:none;display:inline-flex;align-items:center;gap:7px;margin-top:14px;transition:gap .2s,color .4s}
+.w-link:hover{gap:12px}
+
+/* ===== SKILLS ===== */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-card{border:1px solid var(--line);border-radius:14px;padding:24px;background:rgba(15,24,40,.45);transition:all .3s}
+.skill-card:hover{border-color:var(--line-strong);background:rgba(15,24,40,.75);transform:translateY(-3px)}
+.skill-card h4{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.logo-grid{display:flex;flex-wrap:wrap;gap:10px}
+.logo-chip{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:rgba(120,160,220,.04);cursor:default;transition:transform .2s,border-color .2s,background .2s}
+.logo-chip svg{width:17px;height:17px;fill:var(--ink-dim);transition:fill .2s,stroke .2s,transform .25s}
+.logo-chip svg.stroke{fill:none;stroke:var(--ink-dim);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.logo-chip.dom svg{width:12px;height:12px;opacity:.7}
+.logo-chip span{font-family:var(--mono);font-size:12px;color:var(--ink-dim);transition:color .2s}
+.logo-chip:hover{transform:translateY(-3px);background:rgba(120,160,220,.09)}
+.logo-chip:hover span{color:var(--ink)}
+.logo-chip:hover svg{transform:scale(1.15) rotate(-4deg)}
+.logo-chip.dom span{color:var(--ink-dim)}
+
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.edu-card{border:1px solid var(--line);border-radius:12px;padding:28px;background:rgba(15,24,40,.45);position:relative;overflow:hidden}
+.edu-ic{width:38px;height:38px;border:1px solid var(--line-strong);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:rgba(74,222,128,.06)}
+.edu-ic svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.edu-card:nth-child(2) .edu-ic{background:rgba(56,189,248,.06)}
+.edu-card:nth-child(2) .edu-ic svg{stroke:var(--accent-2)}
+.edu-card .gpa{position:absolute;top:24px;right:26px;font-weight:700;font-size:30px;color:var(--accent);letter-spacing:-1px}
+.edu-card .gpa small{font-size:13px;color:var(--ink-faint);font-weight:400}
+.edu-school{font-weight:600;font-size:19px;letter-spacing:-.4px;max-width:78%}
+.edu-deg{font-family:var(--mono);font-size:13px;color:var(--accent-2);margin:8px 0 6px}
+.edu-meta{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+/* ===== RECOMMENDATIONS ===== */
+.rec-wrap{position:relative}
+.rec-rail{display:flex;gap:20px;overflow-x:auto;padding:6px 4px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.rec-rail::-webkit-scrollbar{display:none}
+.rec-rail.dragging{cursor:grabbing;scroll-snap-type:none}
+.rec-rail.dragging .rec-card{pointer-events:none}
+.rec-nav{display:flex;gap:10px;margin-top:18px;align-items:center}
+.rec-btn{width:44px;height:44px;border:1px solid var(--line-strong);border-radius:10px;background:rgba(15,24,40,.6);color:var(--ink);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.rec-btn:hover:not(:disabled){background:var(--accent);color:#04140a;border-color:var(--accent);transform:translateY(-2px)}
+.rec-btn:disabled{opacity:.35;cursor:not-allowed}
+.rec-dots{display:flex;gap:7px;align-items:center;margin-left:6px}
+.rec-dot{width:7px;height:7px;border-radius:50%;background:var(--line-strong);transition:all .25s}
+.rec-dot.on{background:var(--accent);width:20px;border-radius:4px}
+.rec-card{flex:0 0 340px;scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;padding:28px;background:linear-gradient(165deg,rgba(15,24,40,.8),rgba(11,17,32,.6));display:flex;flex-direction:column}
+.rec-card .qmark{font-family:var(--serif);font-size:54px;line-height:.5;color:var(--accent);opacity:.3;margin-bottom:10px}
+.rec-card blockquote{color:var(--ink);font-size:15.5px;line-height:1.6;flex:1;font-weight:400}
+.rec-who{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.rec-who .role{font-family:var(--mono);font-size:12.5px;color:var(--accent-2);letter-spacing:.3px}
+.rec-who .ctx{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:6px}
+.rec-hint{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:1px;margin-top:8px}
+
+/* CONTACT */
+.contact{text-align:center;padding:120px 0 90px}
+.contact .sec-tag{justify-content:center}
+.contact h2{font-weight:700;font-size:clamp(34px,6vw,68px);letter-spacing:-2px;line-height:1.04;margin-bottom:22px}
+.contact h2 .ital{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+.contact p{color:var(--ink-dim);max-width:520px;margin:0 auto 40px;font-size:17px}
+.contact-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.contact-links a{font-family:var(--mono);font-size:13.5px;color:var(--ink-dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:8px}
+.contact-links a:hover{color:var(--accent)}
+.contact-links .cl-ic{width:16px;height:16px;fill:var(--ink-faint);transition:fill .2s}
+.contact-links a:hover .cl-ic{fill:var(--accent)}
+.contact-links .k{color:var(--ink-faint)}
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;position:relative;z-index:2}
+footer p{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+@media(max-width:860px){
+  .nav-links{position:fixed;top:62px;right:14px;flex-direction:column;background:var(--panel);border:1px solid var(--line-strong);border-radius:12px;padding:18px 22px;gap:18px;align-items:flex-start;display:none;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .nav-links.open{display:flex}
+  .nav-icons{gap:10px}
+  .menu-btn{display:block}
+  #bg3d{width:100vw}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .metric{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)}
+  .metric:nth-child(2n){border-right:none!important}
+  .metric:last-child{border-bottom:none}
+  .exp{grid-template-columns:1fr;gap:14px}
+  .work-layout{grid-template-columns:1fr}
+  .work-visual{position:relative;height:auto;padding:20px 0 4px}
+  .work-visual .vis-frame{max-width:340px}
+  .work-tiles{padding:0;gap:22px}
+  .work-tile{padding:24px}
+  .skills-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .scroll-hint{display:none}
+  .rec-card{flex-basis:280px}
+}
+@media(max-width:480px){.metrics{grid-template-columns:1fr}.metric{border-right:none!important}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}h1.hero-name .ln span{transform:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="loader"><div class="lname">Jagadeesh · Sunkara</div><div class="lbar"><i id="lbarFill"></i></div><div class="lpct" id="lpct">Initializing 0%</div></div>
+<canvas id="bg3d"></canvas>
+<div class="grid-overlay"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <button class="brand" id="brandTop" aria-label="Back to top"><span class="dot"></span>JCP.SUNKARA</button>
+  <button class="menu-btn" id="menuBtn">MENU</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#experience">Experience</a>
+    <a href="#work-stage">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#recommendations">Recommendations</a>
+    <a href="Jagadeesh_Sunkara_Resume.pdf" download>Résumé ↓</a>
+    <span class="nav-icons">
+      <a href="https://www.linkedin.com/in/jagadeesh-sunkara/" target="_blank" rel="noopener" class="nav-ic" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a href="https://github.com/Jagadeesh-Sunkara" target="_blank" rel="noopener" class="nav-ic" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg></a>
+    </span>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-eyebrow anim"><span class="bar"></span>Software Engineer · Investment &amp; Financial Technology</div>
+      <h1 class="hero-name">
+        <span class="ln"><span class="anim-name">Jagadeesh Chandra</span></span>
+        <span class="ln"><span class="anim-name accent">Prasad Sunkara</span></span>
+      </h1>
+      <p class="hero-role anim">I build the systems that move <b>private credit</b> — from spreadsheets to scalable platforms.</p>
+      <p class="hero-desc anim">5+ years engineering enterprise fintech across <b>private credit, investment operations,</b> and <b>AI automation</b>. Currently leading technology modernization at <b>MGG Investment Group</b> in New York — shipping full-stack platforms and AI agents that handle reporting, reconciliations, and document processing.</p>
+      <div class="hero-cta-row anim">
+        <a href="#contact" class="btn btn-primary">Hire me →</a>
+        <a href="Jagadeesh_Sunkara_Resume.pdf" download class="btn btn-violet">Download résumé ↓</a>
+        <a href="#work-stage" class="btn btn-ghost">See the work</a>
+      </div>
+    </div>
+    <div class="metrics anim" id="metrics">
+      <div class="metric"><div class="label">Experience</div><div class="value" data-target="5" data-suffix="+"></div><div class="sub">years in fintech</div></div>
+      <div class="metric"><div class="label">Grad GPA</div><div class="value" data-target="3.97" data-dec="2"></div><div class="sub">Data Science · UMBC</div></div>
+      <div class="metric"><div class="label">CNN X-ray</div><div class="value" data-target="90.4" data-dec="1" data-suffix="%"></div><div class="sub">20K-image model</div></div>
+      <div class="metric"><div class="label">Fraud model</div><div class="value" data-target="99.9" data-dec="1" data-suffix="%"></div><div class="sub">validation accuracy</div></div>
+      <div class="metric"><div class="label">Recommendations</div><div class="value" data-target="7" data-suffix="+"></div><div class="sub">from leads &amp; teammates</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint anim"><span class="mouse"></span><span>scroll to explore</span></div>
+</header>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="bar"></span><span class="num">01</span> Experience</div>
+      <h2 class="sec-title">Where I've <span class="ital">worked.</span></h2>
+      <p class="sec-sub">Five years across investment technology, enterprise financial software, and product leadership.</p>
+    </div>
+    <div>
+      <div class="exp reveal">
+        <div class="exp-meta"><div class="exp-date">JAN 2025 — PRESENT</div><div class="exp-loc">New York, NY</div><span class="exp-kind">Full-time</span></div>
+        <div>
+          <div class="exp-co">MGG Investment Group LP</div>
+          <div class="exp-title">Financial Technology Software Engineer</div>
+          <ul class="exp-points">
+            <li>Lead a <b>centralized investment operations platform</b> for portfolio managers, traders, finance &amp; ops across private credit portfolios.</li>
+            <li>Architect full-stack apps with <b>React, .NET, SQL Server &amp; REST APIs</b>, replacing fragmented Excel-driven workflows.</li>
+            <li>Build ETL frameworks integrating <b>deal-management and portfolio-monitoring platforms</b>, secure file feeds, and third-party financial data sources.</li>
+            <li>Develop automated <b>trade lifecycle workflows</b> — validation, reconciliation, transfer processing &amp; operational controls.</li>
+          </ul>
+          <div class="exp-sub-tag"><span class="bar"></span>AI &amp; Intelligent Automation</div>
+          <ul class="exp-points">
+            <li>Design AI assistants on <b>OpenAI APIs &amp; LLMs</b>; build agents for reporting, reconciliations &amp; document retrieval.</li>
+            <li>Develop <b>conversational AI</b> so business users retrieve investment &amp; operational data in natural language.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="exp-meta"><div class="exp-date">JAN 2024 — JAN 2025</div><div class="exp-loc">Baltimore, MD</div><span class="exp-kind">Fellowship</span></div>
+        <div>
+          <div class="exp-co">bwtech@UMBC Research &amp; Technology Park</div>
+          <div class="exp-title">Project Management Fellow — Maryland New Venture Program</div>
+          <ul class="exp-points">
+            <li>Collaborated with technologists &amp; entrepreneurs to develop market-aligned products, <b>boosting team productivity by 20%</b>.</li>
+            <li>Facilitated weekly meetings with clear agendas &amp; deadlines, keeping projects on track.</li>
+            <li>Led customer discovery &amp; market research; contributed to pitch decks covering pricing, licensing &amp; implementation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="exp-meta"><div class="exp-date">SEP 2023 — JAN 2024</div><div class="exp-loc">Baltimore, MD</div><span class="exp-kind">Leadership</span></div>
+        <div>
+          <div class="exp-co">UMBC Product Management Club</div>
+          <div class="exp-title">Vice President &amp; Business Head</div>
+          <ul class="exp-points">
+            <li>Led initiatives driving the club's growth — acquiring sponsors &amp; securing funding for business initiatives.</li>
+            <li>Managed budget, planned impactful events &amp; helped members use development funds to grow.</li>
+            <li>Built relationships with speakers, judges &amp; university departments to strengthen partnerships.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="exp-meta"><div class="exp-date">JUN 2019 — JAN 2023</div><div class="exp-loc">Bangalore, India</div><span class="exp-kind">Full-time · 2 roles</span></div>
+        <div>
+          <div class="exp-co">Odessa</div>
+          <div class="exp-role-blk">
+            <div class="exp-title">Senior Software Engineer <span class="exp-role-date">· Jan 2021 — Jan 2023</span></div>
+            <ul class="exp-points">
+              <li>Built enterprise financial software for global banking, equipment leasing &amp; financial services on a leading leasing platform.</li>
+              <li>Implemented <b>taxation, lease accounting, invoicing, payments,</b> collections &amp; contract management modules.</li>
+              <li>Created API integrations to ERP, CRM &amp; payment gateways; led <b>data migration &amp; reconciliation</b> across the SDLC.</li>
+            </ul>
+          </div>
+          <div class="exp-role-blk" style="margin-top:18px">
+            <div class="exp-title">Business Analyst <span class="exp-role-date">· Jun 2019 — Jan 2021</span></div>
+            <ul class="exp-points">
+              <li>Translated business requirements into functional specs via stakeholder workshops, process analysis &amp; elicitation.</li>
+              <li>Developed <b>BRDs, FRDs, API specifications,</b> process maps &amp; user stories; coordinated UAT with engineering.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK: visual left + tiles right -->
+<div id="work-stage">
+  <div class="wrap sec-head reveal" id="worktag">
+    <div class="sec-tag"><span class="bar"></span><span class="num">02</span> The Work</div>
+    <h2 class="sec-title">Built to <span class="ital">solve real problems.</span></h2>
+    <p class="sec-sub">Seven builds — from a private-credit platform and AI agents to deep learning, NLP &amp; data. Scroll, and the visual on the left shifts with each one.</p>
+  </div>
+  <div class="wrap">
+    <div class="work-layout">
+      <!-- LEFT: sticky changing visual -->
+      <div class="work-visual">
+        <div class="vis-frame" id="visFrame"></div>
+        <div class="vis-cap">
+          <span class="tag" id="visTag">PROJECT 01 / 05</span>
+          <span class="ttl" id="visTtl">Reading chest X-rays with a CNN</span>
+        </div>
+      </div>
+      <!-- RIGHT: tiles -->
+      <div class="work-tiles">
+        <div class="work-tile" data-scene="0">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">01 · FLAGSHIP · MGG</div>
+          <h3>Investment Operations <span class="em">Platform</span></h3>
+          <div class="w-sub">React · .NET · SQL Server · REST APIs · Azure</div>
+          <p>A <b>centralized platform</b> for portfolio managers, traders, finance &amp; ops across private credit — replacing fragmented Excel workflows with one source of truth.</p>
+          <ul>
+            <li>Models <b>securities, borrowers, funds, cash flows, fees, positions</b> &amp; performance.</li>
+            <li>ETL frameworks wiring in <b>deal-management &amp; portfolio-monitoring platforms</b> and secure feeds.</li>
+            <li>Automated <b>trade lifecycle</b> — validation, reconciliation &amp; exception handling.</li>
+            <li>Real-time operational dashboards giving teams live visibility into the book.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">SQL Server</span><span class="chip">Azure</span></div>
+        </div>
+        <div class="work-tile" data-scene="1">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">02 · AI AUTOMATION</div>
+          <h3>AI Agents for <span class="em">Operations</span></h3>
+          <div class="w-sub">OpenAI · LLMs · Agentic Workflows · RAG</div>
+          <p>Intelligent agents that <b>automate the busywork</b> of finance ops — and let business users just <i>ask</i> for what they need in natural language.</p>
+          <ul>
+            <li>Operational assistants built on <b>OpenAI APIs + LLMs</b>.</li>
+            <li>Agents automating reporting, portfolio inquiries &amp; document retrieval.</li>
+            <li><b>Conversational AI</b> over investment &amp; operational data.</li>
+            <li>Agentic workflows that cut manual effort on repetitive finance tasks.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">OpenAI</span><span class="chip">RAG</span><span class="chip">NLP</span><span class="chip">Prompt Eng.</span></div>
+        </div>
+        <div class="work-tile" data-scene="2">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">03 · DEEP LEARNING</div>
+          <h3>Chest <span class="em">X-Ray</span> Detection</h3>
+          <div class="w-sub">CNN · TensorFlow · PySpark · 90.4% accuracy</div>
+          <p>A <b>Convolutional Neural Network</b> detecting COVID-19 &amp; Pneumonia from chest X-rays, trained on Spark big-data pipelines.</p>
+          <ul>
+            <li>Trained across <b>2K → 5K → 20K</b> image sets; accuracy climbed to <b>90.39%</b>.</li>
+            <li>Spark ingestion, cleaning &amp; EDA on 30GB+ of imaging data.</li>
+            <li>Classifies Normal / Pneumonia / COVID to support faster triage.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">TensorFlow</span><span class="chip">CNN</span><span class="chip">PySpark</span><span class="chip">Keras</span></div>
+          <a class="w-link" href="https://github.com/Jagadeesh-Sunkara/Chest-X-Ray-Detection" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="work-tile" data-scene="3">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">04 · NLP · ML</div>
+          <h3>AI Resume <span class="em">Analysis &amp; Matching</span></h3>
+          <div class="w-sub">NLP · SpaCy · LDA · Flask</div>
+          <p>An <b>AI resume-evaluation platform</b> that matches candidates to jobs and automates screening.</p>
+          <ul>
+            <li><b>NER</b> extracts skills, education, certifications &amp; experience.</li>
+            <li><b>LDA topic modeling</b> + ATS-style compatibility scoring drives matching.</li>
+            <li>Automates first-pass screening to speed up shortlisting.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">Python</span><span class="chip">SpaCy</span><span class="chip">scikit-learn</span><span class="chip">Flask</span></div>
+          <a class="w-link" href="https://github.com/Jagadeesh-Sunkara/Resume_Analysis_Capstone" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="work-tile" data-scene="4">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">05 · ML · RISK</div>
+          <h3>Online Payment <span class="em">Fraud Detection</span></h3>
+          <div class="w-sub">Random Forest · Logistic Regression · 99.9%</div>
+          <p>ML models identifying transaction-fraud patterns in <b>real time</b>.</p>
+          <ul>
+            <li>Decision Trees, Logistic Regression &amp; Random Forest at <b>99.9% validation accuracy</b>.</li>
+            <li>Feature engineering on transaction patterns to flag anomalies.</li>
+            <li>Tuned to minimize false positives while catching real fraud.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">scikit-learn</span></div>
+        </div>
+        <div class="work-tile" data-scene="5">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">06 · ANALYTICS · BI</div>
+          <h3>UK Bank <span class="em">Customer Analysis</span></h3>
+          <div class="w-sub">Tableau · Data Storytelling</div>
+          <p>Interactive <b>Tableau dashboards</b> turning a UK bank's customer base into decisions.</p>
+          <ul>
+            <li>Demographics, balances &amp; product usage across England, Scotland, Wales &amp; N. Ireland.</li>
+            <li>Surfaced target segments for marketing &amp; retention.</li>
+            <li>Drill-down views by age, gender &amp; job class for deeper insight.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">Tableau</span><span class="chip">SQL</span><span class="chip">Power BI</span></div>
+          <a class="w-link" href="https://github.com/Jagadeesh-Sunkara/UK-Bank-Customer-Analaysis" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="work-tile" data-scene="6">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="w-idx">07 · BIG DATA</div>
+          <h3>Bike Share <span class="em">Analytics</span></h3>
+          <div class="w-sub">PySpark · Python · SQL</div>
+          <p>Scalable <b>PySpark pipelines</b> analyzing transportation usage trends &amp; rider behavior.</p>
+          <ul>
+            <li>Processed large-scale ride datasets to surface usage patterns.</li>
+            <li>Generated actionable insights on demand &amp; behavior.</li>
+            <li>Built to scale across millions of trip records.</li>
+          </ul>
+          <div class="tech-row"><span class="chip">PySpark</span><span class="chip">Python</span><span class="chip">SQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="bar"></span><span class="num">03</span> Capabilities</div>
+      <h2 class="sec-title">The full <span class="ital">stack.</span></h2>
+      <p class="sec-sub">Hover any tool to bring it to life.</p>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="bar"></span><span class="num">04</span> Education</div>
+      <h2 class="sec-title">Where I <span class="ital">studied.</span></h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-ic"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 6h3M7 18h3M12 7v10M14 6l3.5 5M14 18l3.5-5"/></svg></div>
+        <div class="gpa">3.97<small>/4.0</small></div>
+        <div class="edu-school">University of Maryland, Baltimore County</div>
+        <div class="edu-deg">M.P.S. — Data Science</div>
+        <div class="edu-meta">May 2024 · Baltimore, MD</div>
+        <div class="edu-meta" style="margin-top:10px;color:var(--ink-dim)">ML · AI · Big Data · Data Engineering · Statistical Modeling</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-ic"><svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div>
+        <div class="edu-school">Lovely Professional University</div>
+        <div class="edu-deg">B.Tech — Computer Science</div>
+        <div class="edu-meta">May 2020 · India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="bar"></span><span class="num">05</span> Recommendations</div>
+      <h2 class="sec-title">What colleagues <span class="ital">say.</span></h2>
+      <p class="sec-sub">From managers, architects &amp; teammates I've worked alongside.</p>
+      <p class="rec-hint">drag, or use the arrows →</p>
+    </div>
+    <div class="rec-wrap reveal">
+      <div class="rec-rail" id="recRail"></div>
+      <div class="rec-nav">
+        <button class="rec-btn" id="recPrev" aria-label="Previous">‹</button>
+        <button class="rec-btn" id="recNext" aria-label="Next">›</button>
+        <div class="rec-dots" id="recDots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-tag"><span class="bar"></span> Let's talk</div>
+    <h2>Looking for an engineer who <span class="ital">speaks finance?</span></h2>
+    <p>I turn spreadsheet chaos into scalable platforms and ship AI agents that move operations. If that's the problem you're solving — let's connect.</p>
+    <div class="contact-row">
+      <a class="btn btn-primary" href="mailto:sunkara.jagadeesh11@gmail.com">Email me →</a>
+      <a class="btn btn-violet" href="Jagadeesh_Sunkara_Resume.pdf" download>Download résumé ↓</a>
+      <a class="btn btn-ghost" href="tel:+16673912368">Call · 667-391-2368</a>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:sunkara.jagadeesh11@gmail.com"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5zm2 1.4V18h16V6.4l-8 5.5-8-5.5zM4.8 6 12 11l7.2-5H4.8z"/></svg><span class="k">email/</span>sunkara.jagadeesh11@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jagadeesh-sunkara/" target="_blank" rel="noopener"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span class="k">linkedin/</span>jagadeesh-sunkara</a>
+      <a href="https://github.com/Jagadeesh-Sunkara" target="_blank" rel="noopener"><svg class="cl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg><span class="k">github/</span>Jagadeesh-Sunkara</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>Jagadeesh Chandra Prasad Sunkara</p></div></footer>
+
+<script type="module">
+const ICONS={
+  "react":{l:"React",c:"#61DAFB",d:"M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"},
+  "dotnet":{l:".NET",c:"#512BD4",d:"M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z"},
+  "sharp":{l:"C#",c:"#239120",d:"M14.2209.0875v5.9613l-3.7433.5012v3.5233l3.7433-.5012v3.5735l3.492-.4672V9.1047L24 8.2634l-.4631-3.4613-5.824.7794V.0875zM6.287 1.145v5.9618L0 7.9483l.4634 3.4613 5.8514-.7834 3.4644-.4637V1.145zm3.5198 9.7185l-3.492.4675v3.578l-6.183.8276.4633 3.4613 5.8239-.7796v5.4942h3.492v-5.962l3.6114-.4834V13.944l-3.7156.4973zm13.73 1.7405l-5.824.779-3.492.4673v9.0179h3.492v-5.9618L24 16.0652Z"},
+  "typescript":{l:"TypeScript",c:"#3178C6",d:"M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"},
+  "javascript":{l:"JavaScript",c:"#F7DF1E",d:"M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"},
+  "python":{l:"Python",c:"#3776AB",d:"M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"},
+  "r":{l:"R",c:"#276DC3",d:"M12 2.746c-6.627 0-12 3.599-12 8.037 0 3.897 4.144 7.144 9.64 7.88V16.26c-2.924-.915-4.925-2.755-4.925-4.877 0-3.035 4.084-5.494 9.12-5.494 5.038 0 8.757 1.683 8.757 5.494 0 1.976-.999 3.379-2.662 4.272.09.066.174.128.258.216.169.149.25.363.372.544 2.128-1.45 3.44-3.437 3.44-5.631 0-4.44-5.373-8.038-12-8.038zm-2.111 4.99v13.516l4.093-.002-.002-5.291h1.1c.225 0 .321.066.549.25.272.22.715.982.715.982l2.164 4.063 4.627-.002-2.864-4.826s-.086-.193-.265-.383a2.22 2.22 0 00-.582-.416c-.422-.214-1.149-.434-1.149-.434s3.578-.264 3.578-3.826c0-3.562-3.744-3.63-3.744-3.63zm4.127 2.93l2.478.002s1.149-.062 1.149 1.127c0 1.165-1.149 1.17-1.149 1.17h-2.478zm1.754 6.119c-.494.049-1.012.079-1.54.088v1.807a16.622 16.622 0 002.37-.473l-.471-.891s-.108-.183-.248-.394c-.039-.054-.08-.098-.111-.137z"},
+  "oracle":{l:"Oracle",c:"#F80000",d:"M16.412 4.412h-8.82a7.588 7.588 0 0 0-.008 15.176h8.828a7.588 7.588 0 0 0 0-15.176zm-.193 12.502H7.786a4.915 4.915 0 0 1 0-9.828h8.433a4.914 4.914 0 1 1 0 9.828z"},
+  "mongodb":{l:"MongoDB",c:"#47A248",d:"M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"},
+  "openai":{l:"OpenAI",c:"#412991",d:"M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"},
+  "tableau":{l:"Tableau",c:"#E97627",d:"M11.654.174V2.377H9.682v.58h1.972V5.16h.696V2.957h1.97v-.58h-1.97V.174h-.348zm6.03 2.262l-.002 1.623v1.623h-2.957v.927h2.957v3.188H18.725l.011-1.582.02-1.576 1.465-.02 1.46-.01v-.927H18.728V2.436h-.522zm-12.407.06V5.686H2.291v.925H5.277V9.801h.985V6.61h3.013v-.925H6.262V2.496H5.77zm6.086 5.27v3.593H8.06v1.188h3.304v3.596h1.28v-3.596H15.953v-1.188H12.643V7.766h-.637zm9.721 1.55v2.221h-2.012v.811h2.012v2.261h.887v-2.261H24v-.811h-2.029V9.317h-.422zm-19.111.131V11.621H0v.621H1.973v2.194H2.64v-2.194h2v-.62H2.609V9.446h-.318zm15.709 4.516v3.254h-3.016v.927h3.016v3.217h1.072v-3.216H21.74v-.928H18.754v-3.254h-.533zm-12.463.008v3.246H2.262v.928h2.957v3.189H6.32v-3.189h2.955v-.928H6.32V13.97h-.55zm6.316 4.578l.002 1.103v1.1H9.566v.812h1.971v2.262h.928l.012-1.119.017-1.143H14.463v-.812h-2V18.549h-.465z"},
+  "tensorflow":{l:"TensorFlow",c:"#FF6F00",d:"M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"},
+  "scikitlearn":{l:"scikit-learn",c:"#F7931E",d:"M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a9.74 9.74 0 0 0 .584-.643c.043-.292.205-.66.489-1.106a1.848 1.848 0 0 1-.537.176c-.144.265-.37.55-.676.855-.354.335-.607.554-.76.656a.795.795 0 0 1-.437.152c-.35 0-.514-.308-.494-.924-.22.316-.425.549-.612.7a.914.914 0 0 1-.578.224c-.194 0-.36-.09-.496-.273a1.03 1.03 0 0 1-.193-.507 4.016 4.016 0 0 1-.726.583c-.224.132-.47.197-.74.197-.3 0-.543-.096-.727-.288a.978.978 0 0 1-.257-.524v.004c-.3.276-.564.48-.79.611a1.295 1.295 0 0 1-.649.197.693.693 0 0 1-.571-.275c-.145-.183-.218-.43-.218-.739 0-.464.101-1.02.302-1.67.201-.65.445-1.25.733-1.797l.842-.312a.21.21 0 0 1 .06-.013c.063 0 .116.047.157.14.04.095.061.221.061.38 0 .451-.104.888-.312 1.31-.207.422-.532.873-.974 1.352-.018.23-.027.388-.027.474 0 .193.036.345.106.458.071.113.165.169.282.169a.71.71 0 0 0 .382-.13c.132-.084.333-.26.602-.523.028-.418.187-.798.482-1.142.324-.38.685-.569 1.08-.569.206 0 .37.054.494.16a.524.524 0 0 1 .186.417c0 .458-.486.829-1.459 1.114.088.43.32.646.693.646a.807.807 0 0 0 .417-.117c.129-.076.321-.243.575-.497.032-.252.118-.495.259-.728.182-.3.416-.544.701-.73.285-.185.537-.278.756-.278.276 0 .47.127.58.381l.677-.374h.186l-.292.971c-.15.488-.226.823-.226 1.004 0 .19.067.285.202.285.086 0 .181-.045.285-.137.104-.092.25-.232.437-.42v.001c.143-.155.274-.32.392-.494-.19-.084-.285-.21-.285-.375 0-.17.058-.352.174-.545.116-.194.275-.29.479-.29.172 0 .258.088.258.265 0 .139-.05.338-.149.596.367-.04.687-.32.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471zm4.725 8.203a8.938 8.938 0 0 1-1.333 2.151 1.09 1.09 0 0 0-.012.147c0 .168.047.309.14.423.092.113.206.17.34.17.296 0 .714-.264 1.254-.787-.001.04-.003.08-.003.121 0 .146.012.368.036.666l.733-.172c0-.2.003-.357.01-.474.01-.157.033-.33.066-.517.02-.11.07-.216.152-.315l.186-.216a5.276 5.276 0 0 1 .378-.397c.062-.055.116-.099.162-.13a.26.26 0 0 1 .123-.046c.055 0 .083.035.083.106 0 .07-.052.236-.156.497-.194.486-.292.848-.292 1.084 0 .175.046.314.136.418a.45.45 0 0 0 .358.155c.365 0 .803-.269 1.313-.808v-.381c-.361.426-.623.64-.784.64-.109 0-.163-.067-.163-.2 0-.1.065-.316.195-.65.19-.486.285-.836.285-1.048a.464.464 0 0 0-.112-.319.36.36 0 0 0-.282-.127c-.165 0-.354.077-.567.233-.213.156-.5.436-.863.84.053-.262.165-.622.335-1.08l-.809.156a6.54 6.54 0 0 0-.399 1.074c-.04.156-.07.316-.092.48a7.447 7.447 0 0 1-.49.45.38.38 0 0 1-.229.08.208.208 0 0 1-.174-.082.352.352 0 0 1-.064-.222c0-.1.019-.214.056-.343.038-.13.12-.373.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717c0 .037.006.062.02.075.012.013.037.02.074.02a.23.23 0 0 0 .078-.01v.141a.802.802 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258c.081 0 .15.012.207.038.057.024.1.061.13.11s.045.106.045.173h-.176c-.006-.111-.075-.167-.208-.167a.285.285 0 0 0-.164.041.134.134 0 0 0-.06.117c0 .035.015.065.045.088.03.024.08.044.15.06l.16.039a.47.47 0 0 1 .224.105c.047.046.07.108.07.186a.3.3 0 0 1-.052.175.327.327 0 0 1-.152.116.585.585 0 0 1-.226.041c-.136 0-.24-.03-.309-.088-.069-.059-.105-.149-.109-.269h.176c.004.037.01.065.017.084a.166.166 0 0 0 .034.054c.044.043.112.065.204.065a.31.31 0 0 0 .177-.045.139.139 0 0 0 .067-.119.116.116 0 0 0-.038-.09.287.287 0 0 0-.124-.055l-.156-.038a1.248 1.248 0 0 1-.159-.05.359.359 0 0 1-.098-.061.22.22 0 0 1-.058-.083.32.32 0 0 1-.016-.108c0-.096.036-.174.109-.232a.45.45 0 0 1 .29-.087zm1.035 0a.46.46 0 0 1 .202.043.351.351 0 0 1 .187.212.577.577 0 0 1 .023.126h-.168a.256.256 0 0 0-.078-.168.242.242 0 0 0-.17-.06.248.248 0 0 0-.155.05.306.306 0 0 0-.1.144.662.662 0 0 0-.034.224.58.58 0 0 0 .035.214.299.299 0 0 0 .101.135.261.261 0 0 0 .157.048c.142 0 .227-.084.256-.252h.167a.519.519 0 0 1-.065.22.35.35 0 0 1-.146.138.464.464 0 0 1-.216.048.448.448 0 0 1-.246-.066.441.441 0 0 1-.161-.192.703.703 0 0 1-.057-.293c0-.085.01-.163.032-.233a.522.522 0 0 1 .095-.182.403.403 0 0 1 .15-.117.453.453 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618c-.08 0-.2.204-.356.611-.155.407-.308.977-.459 1.71.281-.312.509-.662.683-1.05.175-.387.262-.72.262-.999a.455.455 0 0 0-.036-.197c-.025-.05-.056-.075-.093-.075zm4.662 1.797c-.221 0-.431.188-.629.563-.197.376-.296.722-.296 1.038 0 .12.029.216.088.29a.273.273 0 0 0 .223.111c.221 0 .43-.188.625-.565.196-.377.294-.725.294-1.043a.457.457 0 0 0-.083-.29.269.269 0 0 0-.222-.104zm-2.848.007c-.146 0-.285.11-.417.333-.133.222-.2.51-.2.866.566-.159.849-.452.849-.881 0-.212-.077-.318-.232-.318Z"},
+  "pandas":{l:"pandas",c:"#150458",d:"M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"},
+  "numpy":{l:"NumPy",c:"#013243",d:"M10.315 4.876L6.3048 2.8517l-4.401 2.1965 4.1186 2.0683zm1.8381.9277l4.2045 2.1223-4.3622 2.1906-4.125-2.0718zm5.6153-2.9213l4.3193 2.1658-3.863 1.9402-4.2131-2.1252zm-1.859-.9329L12.021 0 8.1742 1.9193l4.0068 2.0208zm-3.0401 16.7443V24l4.7107-2.3507-.0053-5.3085zm4.7037-4.2057l-.0052-5.2528-4.6985 2.3356v5.2546zm5.6553-.9845v5.327l-4.0178 2.0052-.0029-5.3028zm0-1.8626V6.4214l-4.0253 2.001.0034 5.2633zM11.2062 11.571L8.0333 9.9756v6.895s-3.8804-8.2564-4.2399-8.998c-.0463-.0957-.2371-.2007-.2858-.2262C2.8118 7.2812.773 6.2485.773 6.2485V18.43l2.8204 1.5076v-6.3674s3.8392 7.3775 3.878 7.458c.0389.0807.4245.8582.8362 1.1314.5485.363 2.8992 1.7766 2.8992 1.7766z"},
+  "apachespark":{l:"PySpark",c:"#E25A1C",d:"M10.812 0c-.425.013-.845.215-1.196.605a3.593 3.593 0 00-.493.722c-.355.667-.425 1.415-.556 2.143a551.9 551.9 0 00-.726 4.087c-.027.16-.096.227-.244.273C5.83 8.386 4.06 8.94 2.3 9.514c-.387.125-.773.289-1.114.506-1.042.665-1.196 1.753-.415 2.71.346.422.79.715 1.284.936 1.1.49 2.202.976 3.3 1.47.019.01.036.013.053.019h-.004l1.306.535c0 .023.002.045 0 .073-.2 2.03-.39 4.063-.58 6.095-.04.419-.012.831.134 1.23.317.87 1.065 1.148 1.881.701.372-.204.666-.497.937-.818 1.372-1.623 2.746-3.244 4.113-4.872.111-.133.205-.15.363-.098.349.117.697.231 1.045.347h.001c.02.012.045.02.073.03l.142.042c1.248.416 2.68.775 3.929 1.19.4.132.622.164 1.045.098.311-.048.592-.062.828-.236.602-.33.995-.957.988-1.682-.005-.427-.154-.813-.35-1.186-.82-1.556-1.637-3.113-2.461-4.666-.078-.148-.076-.243.037-.375 1.381-1.615 2.756-3.236 4.133-4.855.272-.32.513-.658.653-1.058.308-.878-.09-1.57-1-1.741a2.783 2.783 0 00-1.235.069c-1.974.521-3.947 1.041-5.918 1.57-.175.047-.26.015-.355-.144a353.08 353.08 0 00-2.421-4.018 4.61 4.61 0 00-.652-.849c-.371-.37-.802-.549-1.227-.536zm.172 3.703a.592.592 0 01.189.211c.87 1.446 1.742 2.89 2.609 4.338.07.118.135.16.277.121 1.525-.41 3.052-.813 4.579-1.217.367-.098.735-.193 1.103-.289a.399.399 0 01-.1.2c-1.259 1.48-2.516 2.962-3.779 4.438-.11.13-.12.22-.04.37.937 1.803 1.768 3.309 2.498 4.76l-3.696-1.019c-.538-.18-1.077-.358-1.615-.539-.163-.055-.25-.03-.36.1-1.248 1.488-2.504 2.97-3.759 4.454a.398.398 0 01-.18.132c.035-.378.068-.757.104-1.136.149-1.572.297-3.144.451-4.716-.03-.318.117-.405-.322-.545-1.493-.593-3.346-1.321-4.816-1.905a.595.595 0 01.24-.134c1.797-.57 3.595-1.14 5.394-1.705.127-.04.199-.092.211-.233.013-.148.05-.294.076-.441.241-1.363.483-2.726.726-4.088.068-.386.14-.771.21-1.157z"},
+  "docker":{l:"Docker",c:"#2496ED",d:"M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"},
+  "git":{l:"Git",c:"#F05032",d:"M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"},
+  "github":{l:"GitHub",c:"#ffffff",d:"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"},
+  "flask":{l:"Flask",c:"#ffffff",d:"M7.172 20.36c-.914-.72-1.89-1.41-2.556-2.38-1.402-1.712-2.482-3.694-3.22-5.777-.446-1.355-.6-2.808-1.174-4.11-.602-.944.103-1.978 1.138-2.28.46-.087 1.272-.522.293-.211-.878.644-.963-.585-.063-.662.615-.082.84-.585.63-1.037-.66-.43 1.6-.903.463-1.544C1.5 1.08 4.34.835 3.64 2.285 3.473 3.4 5.624 2.08 5.125 3.368c.507.619 1.9.14 1.865 1.009.74.05.993.672 1.687.72.72.325 2.022.58 2.266 1.39-.713.566-2.364-1.165-2.443.398.215 2.31.16 4.689 1.004 6.888.4 1.332 1.37 2.38 2.244 3.418.837 1.016 1.971 1.73 3.127 2.333 1.014.478 2.107.795 3.213.994.448-.343 1.24-1.617 1.938-1.08.033.604-1.388 1.263-.067 1.196.776-.234 1.314.6 1.953-.152.588.697 2.446-.446 2.027.98-.566.364-1.392.144-1.959.646-.935-.467-1.68.418-2.715.306a19.86 19.86 0 01-3.484.29c-1.912-.15-3.865-.214-5.684-.88-1.024-.297-2.023-.881-2.924-1.464zm1.615.7c1 .432 1.978.888 3.074 1.026 1.74.24 3.537.614 5.283.274-.79-.357-1.608.14-2.395-.255-.944.203-1.957-.052-2.917-.177-1.092-.486-2.27-.82-3.291-1.452-1.277-.466.66.598 1.005.685.798.453-.877-.233-1.114-.421-.668-.375-.754-.297-.066.084.139.08.276.166.42.235zm-1.904-1.346c.97.359-.004-.682-.45-.622-.196-.341-.751-.557-.36-.74-.704.244-.737-.93-1.07-.763-.744-.235-.29-1.07-1.176-1.58-.081-.54-.882-1.008-1.138-1.822-.113-.416-.905-1.613-.418-.5.414 1.072 1.143 1.99 1.75 2.907.47.873 1.027 1.786 1.885 2.33.29.278.568.703.977.79zM4.09 16.647c.033-.146.177.317 0 0zm3.954 3.497c.215-.096-.31-.12 0 0zm.526.192c-.054-.265-.24.148 0 0zm.66.275c.312-.3-.484-.188 0 0zm1.127.63c.191-.282-.61-.107 0 0zM8.19 19.728c.487-.315-.63-.004 0 0zm.494.246c-.014-.166-.176.075 0 0zm2.47 1.542c.397.25 2.32.55 1.115.103-.2.042-2.23-.574-1.116-.103zm-3.921-3.054c-.04-.167-.616-.185 0 0zm1.15.67c.3-.21-.621-.16 0 0zm.966.593c.43-.162-.696-.163 0 0zm-2.584-1.773c.466.358 1.88.046.714-.213-.53-.283-1.727-.476-.912.17zm3.24 1.978c.193-.33-.815-.19 0 0zm-.984-.783c1.14.323-.958-.72-.281-.118l.15.068.13.05zm1.973 1.14c1.08.01-.975-.147 0 0zm-4.644-2.96c-.042-.2-.266.018 0 0zm6.47 3.985c.028-.363-.353.27 0 0zm-4.63-2.856c-.064-.191-.336-.008 0 0zm-1.738-1.254c.62-.037-.848-.273 0 0zm-2.06-1.332c-.077-.297-.674-.534 0 0zm5.407 3.435c-.114-.13-.054.028 0 0zm3.366 2.065c-.01-.197-.183.075 0 0zm-3.664-2.373c.06-.255-.528-.077 0 0zm-2.506-1.592c.46-.05-.74-.311 0 0zm4.241 2.637c.718-.285-.7-.14 0 0zM9.03 18.545c.827.106-.985-.563-.181-.06zm2.876 1.768c.773-.462.518 1.082 1.311.13.782-.57-.675.707.29.103.696-.467 1.726.22 2.376.445.468-.023.923.405 1.403.145.923-.25-1.806-.37-1.09-.81-.845.245-1.47-.294-1.885-.835-.948-.22-2.044-.703-2.517-1.542-.192-.315.28.044-.166-.47-.57-.508-.856-1.085-1.24-1.702-.457-.244-.51-.963-.557-.024.004-.593-.553-.992-.688-.826-.002-.571.595-.285.176-.707-.09-.592-.386-1.21-.475-1.877-.138-.322-.02-1.011-.473-.282-.165.77-.055-.947.202-.38.337-.58-.12-.51-.14-.43.22-.488.14-1.18-.057-.916.117-.517.185-1.902-.175-1.656.218-.54.414-2.473-.534-1.736-.384.005-1.048.14-1.363.296.986.543-.1.196-.5.11-.052.502-.45.285-.946.29.793.098-.386.81-.841.534-.59.282.51.987.012 1.205.06.328-.905-.12-.83.64-.573-.241-.078.9.209.514.975.264.686.866.71 1.437-.158.333-.784-.783-.14-.731-.507-.827-.561-.3-.984.085-.1.028 1.079.547.34.803.65.1.668.67.8 1.03.39.407.31-.45.779.04-.296-.436-1.567-1.228-.544-.974-.005-.44-.185-.793.129-.784.31-.562-.325 1.387.375.672.193-.085.24-.563.59.045.505.498.182.858-.531.403.127.433.954.587.799 1.265.165.595.395.376.596.342.158.578.247.153.255-.123.72.155.552.58.778.88.497.224-.712-1.522.142-.526.898.81.337 1.15-.47 1.02.51-.041.675.69 1.313.664.582.277.975 1.34-.027.897-.348-.313-1.58-.7-.573-.104.929.43 1.665.688 2.561 1.227.64.458.918.982 1.16 1.086-.538.257-1.623-.206-.817-.348-.503-.091-1.068-.345-.587.28.41.343 1.45.306 1.637.345-.159.348-.43.376.006.403-.486.26.156.3.201.448zm-.994-2.808c-.296-.31-.373-.89-.053-.385.164.066.525.947.053.385zm3.238 2.057c.185-.011.006.14 0 0zm-3.706-2.816c-.01-.468.107.36 0 0zm-.322-.433c-.372-.72.47.204 0 0zm-3.9-2.692c.219-.06.108.374 0 0zm3.104 1.682c.134-.504.158.424 0 0zm-2.192-1.525c-.155-.278.323.26 0 0zm1.882.604c-.352-.79.25-.432.078.13zM5.77 12.217c-.158-.26-.418-1.02-.334-1.252.076.378.804 1.627.357.518-.494-.93.59.302.702.534.05.23-.305-.063-.064.478-.44-.617-.26.34-.661-.278zm-1.003-.691c.04-.603.23.413 0 0zm.45.155c.216-.455.366.634 0 0zm-1.084-.84c-.374-.37-.644-.713.017-.23.255.01-.566-.778.06-.25.66.12.327 1.082-.077.48zm.57-.015c.217-.215.115.212 0 0zm.35.113c-.328-.617.4.258 0 0zm-.697-.667c-1.086-.966 1.365.506.177.18zm3.11 1.808c-.47-.282-.123-1.984.037-.82.457-.148-.025.6.315.594-.053.473-.206.643-.35.226zm1.15.68c.048-.513.099.35 0 0zm-.2-.198c.054-.22.007.258 0 0zM4.57 9.955c-.697-.963 2.027.973.447.244-.165-.043-.364-.06-.447-.244zm2.216 1.175c-.066-.81.147.134 0 0zm1.682 1.079c.13-.462.01.305 0 0zM4.676 9.587c.415-.088 1.718.729.52.234-.132-.148-.416-.08-.52-.234zm3.56 1.775c.044-.83.248-.495.002.118zM4.985 9.299c.169-.248-.45-1.12.089-.313.232.185.672.31.283.387.61.539-.15.146-.372-.074zm3.075 1.804c.117-.944.103.553 0 0zM4.632 8.427c.129-.055.068.172 0 0zm.802.478c.206-.434.38.483 0 0zm2.263 1.259c-.002-.167.043.242 0 0zm-.131-.29c-.314-.776.292.41 0 0zm-.193-.51c-.053-.32.18.404 0 0zm.314-.51c-.216-.38.272-1.673.326-.87-.227.625-.065.975.093.136.293-.66-.063 1.303-.42.735zm.322-1.923c.094-.115.02.139 0 0zM7.47 17.544c-.128-.111.016.07 0 0zm1.11.56c.615.16.612-.095.055-.17-.3-.28-1.246-.575-.4-.035.057.142.235.139.344.206zM6.389 16.65c.34.253 1.28.719.484.096.269-.312-.514-.478-.254-.686-.66-.404-.52-.368-.058-.356-.794-.354.114-.328.07-.51-.305-.06-1.52-.54-.804.04-.726-.37-.173.138-.392.084-.743-.202.66.565-.118.375.425.337 1.146.864.18.357-.128.183.69.46.892.6zm1.16.667c1.41.454-.691-.556 0 0zm5.94 3.598c.02-.28-.193.24 0 0zm.611.257c.325-.315.013.503.54-.077.005-.415-.017-.66-.606-.156-.162.09-.234.473.066.233zm-9.692-6.087c-.1-.393-.7-.39 0 0zm.652.428c-.242-.402-.864-.364 0 0zm3.71 2.237c.362.32 1.662.236.44.04-.182-.27-1.151-.204-.44-.04zm5.097 3.149c.558-.468-.54.208 0 0zm1.16.796c.003-.15-.24.066 0 0zm.001-.21c.617-.654-.598.039 0 0zM2.805 13.743c-.526-.75-.327-1.088-.835-1.7-.096-.47-.87-1.533-.4-.406.43.659.558 1.679 1.235 2.106zm12.03 7.534c1.135-.734-.466-.32 0 0zm.866.34c.57-.488-.36-.102 0 0zM4.215 14.255c.163-.242-.42-.031 0 0zm11.305 7.129c.551-.355-.126-.3-.1.032zm-7.47-4.71c-.02-.24-.291.02 0 0zm.46.267c-.145-.297-.224.047 0 0zm7.894 4.684c.705-.51-.428-.098-.148.096zm-.27-.13c.574-.482-.607.213 0 0zm1.38.918c.386-.258-.469-.083 0 0zM4.57 14.08c.517.116 2.066 1.274 1.152.08-.468-.138-.187-1.283-.665-1.08.32.535.264.763-.41.426-.845-.413-.474.204-.31.374-.224.052.299.196.233.2zm-2.356-1.86c.092-.383-.853-2.107-.446-.864.146.26.13.754.446.864zm4.324 2.666c-.266-.223-.013-.032 0 0zm.656.152c0-.405-.725-.164 0 0zm5.681 3.583c-.108-.278-.428-.006 0 0zm.273.199c-.04-.155-.157.03 0 0zM15.4 20.24c.216-.16-.27-.02 0 0zM3.39 12.52c.62-.24-.664-.17 0 0zm8.984 5.662c-.007-.401-.395.1 0 0zm-9.23-6.231c.399-.135-.367-.09 0 0zm1.156.56c-.007-.133-.122.05 0 0zm14.09 8.64c.512-.104 1.678.26 1.866-.136-.62-.015-2.15-.438-2.222.1l.136.023.22.013zM4.667 12.603c.009-.407-.317-.015 0 0zM1.63 10.495c-.138-.775-.525-.118 0 0zm.724.182c.009-.25-.663-.224 0 0zm.414.203c-.12-.097-.094.122 0 0zm2.605 1.67c.122-.112-.29-.083 0 0zm-2.88-2.128c-.07-.585-.84-.088 0 0zm-1.486-.964c-.02-.27-.144.102 0 0zm.22-.167c-.035-.32-.19.04 0 0zm1.22.729c.518-.203-.94-.42-.104-.04zm16.334 10.089c.33-.303-.42-.094 0 0zm1.974 1.023c.132-.392-.334.05 0 0zM2.573 9.38c.055-.38-.41.075 0 0zM.837 8.218c-.093-.535-.08-1.474.812-1.156-1.191.236.824 1.48.57.498.5.024.98-.296.716.19.987-.11 1.67-.964 2.624-.845.742-.098 1.554-.172 2.354-.471.658-.048 1.29-.756.93-1.175-.896-.076-1.835.036-2.827.233-1.098.228-2.096.662-3.205.849-1.08.145.217.4-.092.456-.564.196.672.328-.073.534-.46-.088-.94-.246-.743-.73-1.035.133-1.945.563-1.127 1.616h.06zm2.494-1.27c.243-.894 1.3.735.398.118-.108-.08-.285-.146-.398-.12zm.047-.434c.35-.26.186.146 0 0zm.445.008c.032-.411 1.018.218.163.148zm.608-.245c.222-.26.064.23 0 0zm.156-.104c.37-.444 2.095-.283.832-.043-.338-.255-.598.15-.832.043zm2.25-.347c-.055-1.214 1.119.432 0 0zm.64-.004c.233-.612.906-.245.108-.123.017.065-.024.316-.108.123zM2.322 9.067c.697-.427-.741-.37 0 0zm.515.144c.245-.26-.531-.106 0 0zm-1.52-1.08c.399-.305-.471-.116 0 0zm20.602 12.89c.012-.355-.304.16 0 0zm-2.093-1.43c.06-.408-.27.037 0 0zm2.67 1.568c.557 0 1.688-.173.475-.173-.19.03-1.109.024-.476.173zM3.29 8.959c.45-.03.706-.497-.087-.47-1.23-.127 1.084.42-.158.264-.167.11.236.237.245.207zm.398.202c-.048-.29-.14.154 0 0zm.47-1.257c.197-.243-.27-.065 0 0zm-1.5-2.508c.806-.274 1.907-.581 2.287.135-.387-.466-.156-.924.21-.243.516.689.775-.313.438-.545.383.476.819.7.257.03.61-.734-1.223.097-1.64.088-.2.09-2.071.477-1.551.535zm.472-.903c.46-.347 1.588.206.864-.345-.07-.062-1.586.418-.864.345zm1.674.069c.538.013-.231-.722.409-.39-.105-.343-.746-.407-1.06-.544-.176.314.36.938.65.934zm-1.38-1.52c.186-.252-.326.128 0 0zm.684.164c.866-.115-.22-.373-.174-.01zm-1.277-1c-.61-.796 1.146.134.527-.7-.522-.415-1.023.468-.527.7zm7.824 4.215c.28-.496-1.155-.668-.188-.175.09.03.07.21.188.175z"},
+  "spacy":{l:"spaCy",c:"#09A3D5",d:"M3.001 11.213c-.55-.065-.591-.803-1.297-.738-.342 0-.66.143-.66.457 0 .473.73.517 1.17.636.75.228 1.476.383 1.476 1.199 0 1.035-.811 1.394-1.884 1.394-.897 0-1.806-.318-1.806-1.142 0-.228.22-.407.432-.407.269 0 .363.114.457.301.208.367.44.563 1.019.563.367 0 .742-.139.742-.457 0-.452-.46-.55-.937-.66C.869 12.122.143 12 .057 11.062c-.09-1.598 3.242-1.659 3.433-.257-.004.253-.24.408-.489.408ZM6.964 9.81c1.171 0 1.835.979 1.835 2.186 0 1.211-.644 2.185-1.835 2.185-.66 0-1.072-.281-1.37-.713v1.598c0 .481-.155.714-.505.714-.428 0-.506-.273-.506-.714v-4.648c0-.379.159-.612.506-.612.326 0 .505.257.505.612v.13c.331-.416.71-.738 1.37-.738Zm-.277 3.54c.685 0 .991-.632.991-1.37 0-.722-.31-1.37-.991-1.37-.714 0-1.044.587-1.044 1.37 0 .762.335 1.37 1.044 1.37Zm2.907-2.398c0-.84.967-1.142 1.904-1.142 1.317 0 1.86.384 1.86 1.656v1.223c0 .29.179.869.179 1.044 0 .265-.244.432-.505.432-.29 0-.506-.342-.661-.587-.428.342-.881.587-1.574.587-.766 0-1.37-.453-1.37-1.199 0-.66.473-1.039 1.044-1.17 0 .004 1.835-.432 1.835-.436 0-.563-.2-.812-.791-.812-.522 0-.787.143-.991.457-.163.237-.143.379-.457.379-.253-.004-.473-.175-.473-.432Zm1.566 2.524c.803 0 1.142-.424 1.142-1.268v-.18c-.216.074-1.089.29-1.325.327-.253.049-.506.236-.506.534.008.326.342.587.689.587Zm5.9-5.26c1.134 0 2.361.677 2.361 1.753a.49.49 0 0 1-.481.506c-.371 0-.424-.2-.587-.481-.273-.502-.596-.836-1.297-.836-1.085-.008-1.57.921-1.57 2.079 0 1.167.404 2.007 1.525 2.007.746 0 1.158-.433 1.37-.991.086-.257.241-.506.563-.506.253 0 .506.257.506.534 0 1.142-1.167 1.933-2.365 1.933-1.313 0-2.055-.555-2.463-1.476a3.48 3.48 0 0 1-.326-1.525c-.009-1.77 1.023-2.997 2.764-2.997Zm6.483 1.594c.29 0 .457.188.457.481 0 .119-.094.355-.13.482l-1.395 3.665c-.31.795-.542 1.346-1.598 1.346-.502 0-.938-.045-.938-.481 0-.253.191-.38.457-.38.048 0 .13.025.179.025.077 0 .13.024.179.024.53 0 .604-.542.791-.917L20.2 10.724c-.078-.18-.131-.302-.131-.408 0-.294.229-.506.534-.506.343 0 .478.269.563.563l.889 2.642.889-2.442c.134-.379.147-.763.599-.763Z"},
+  "jira":{l:"Jira",c:"#0052CC",d:"M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"},
+  "postman":{l:"Postman",c:"#FF6C37",d:"M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117h-.003l-.934-.934-.294-.295 3.762-3.758 1.82-.393.874.874c-1.255 1.102-2.971 2.201-5.1 3.268zm5.279-3.428h-.002l-.839-.839 4.699-4.125a.952.952 0 0 0 .119-.127c-.148 1.345-2.029 3.245-3.977 5.091zm3.657-6.46l-.003-.002a1.822 1.822 0 0 1 2.459-2.684l-1.61 1.613a.119.119 0 0 0 0 .169l1.247 1.247a1.817 1.817 0 0 1-2.093-.343zm2.578 0a1.714 1.714 0 0 1-.271.218h-.001l-1.207-1.207 1.533-1.533c.661.72.637 1.832-.054 2.522zM18.855 6.05a.143.143 0 0 0-.053.157.416.416 0 0 1-.053.45.14.14 0 0 0 .023.197.141.141 0 0 0 .084.03.14.14 0 0 0 .106-.05.691.691 0 0 0 .087-.751.138.138 0 0 0-.194-.033z"},
+};
+
+/* ============ 3D SPHERE (right side, ambient) ============ */
+let scrollProg=0, coreRef=null;
+async function loadThree(){
+  const cdns=[
+    'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js',
+    'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js',
+    'https://unpkg.com/three@0.160.0/build/three.module.min.js'
+  ];
+  for(const u of cdns){try{return await import(u);}catch(e){}}
+  return null;
+}
+function showHero(){
+  document.querySelectorAll('.anim').forEach((el,i)=>{el.style.transition='opacity .7s ease, transform .7s ease';el.style.transform='translateY(20px)';setTimeout(()=>{el.style.opacity=1;el.style.transform='none';},250+i*140);});
+  document.querySelectorAll('.anim-name').forEach((el,i)=>{el.style.transition='transform .9s cubic-bezier(.16,1,.3,1)';setTimeout(()=>el.style.transform='translateY(0)',180+i*120);});
+}
+const THREE = await loadThree();
+if(!THREE){ document.getElementById('bg3d').style.display='none'; document.getElementById('loader').classList.add('done'); showHero(); }
+else { buildSphere(THREE); }
+
+function buildSphere(THREE){
+  const canvas=document.getElementById('bg3d');
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  function size(){const w=canvas.clientWidth||canvas.offsetWidth||innerWidth*0.58,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(50,1.4,0.1,100);
+  camera.position.set(0,0,9);
+  const core=new THREE.Group();scene.add(core);coreRef=core;
+  const GREEN=0x4ade80,BLUE=0x38bdf8,VIOLET=0xa78bfa;
+  const ico=new THREE.IcosahedronGeometry(2.2,1);
+  core.add(new THREE.LineSegments(new THREE.WireframeGeometry(ico),new THREE.LineBasicMaterial({color:GREEN,transparent:true,opacity:0.5})));
+  core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(2.2,1),new THREE.MeshBasicMaterial({color:BLUE,transparent:true,opacity:0.05})));
+  core.add(new THREE.Points(new THREE.IcosahedronGeometry(2.2,1),new THREE.PointsMaterial({color:BLUE,size:0.09,transparent:true,opacity:0.9})));
+  const inner=new THREE.Mesh(new THREE.OctahedronGeometry(0.95,0),new THREE.MeshBasicMaterial({color:VIOLET,wireframe:true,transparent:true,opacity:0.45}));core.add(inner);
+  const rings=[];[[3.1,GREEN,0.016],[3.7,BLUE,0.012],[4.3,VIOLET,0.009]].forEach(([r,c,sp],i)=>{const ring=new THREE.Mesh(new THREE.TorusGeometry(r,0.012,8,120),new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:0.4}));ring.rotation.x=Math.PI/2.4+i*0.5;ring.rotation.y=i*0.6;ring.userData.sp=sp;core.add(ring);rings.push(ring);});
+  const N=700,pos=new Float32Array(N*3);for(let i=0;i<N;i++){const r=5+Math.random()*8,t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);pos[i*3]=r*Math.sin(p)*Math.cos(t);pos[i*3+1]=r*Math.sin(p)*Math.sin(t);pos[i*3+2]=r*Math.cos(p);}
+  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const particles=new THREE.Points(pg,new THREE.PointsMaterial({color:0x6f8bb5,size:0.035,transparent:true,opacity:0.55}));scene.add(particles);
+  let mx=0,my=0;addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-0.5);my=(e.clientY/innerHeight-0.5);});
+  size();addEventListener('resize',size);
+  (function loop(){requestAnimationFrame(loop);
+    core.rotation.y+=0.0016+scrollProg*0.003;core.rotation.x+=0.0006;
+    inner.rotation.y-=0.009;inner.rotation.x+=0.005;
+    rings.forEach(r=>r.rotation.z+=r.userData.sp);particles.rotation.y+=0.0004;
+    camera.position.x+=(mx*1.2-camera.position.x)*0.04;camera.position.y+=(-my*0.9-camera.position.y)*0.04;
+    camera.lookAt(0,0,0);renderer.render(scene,camera);
+  })();
+  // preloader -> grow in
+  const fill=document.getElementById('lbarFill'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader');
+  let prog=0;const iv=setInterval(()=>{prog=Math.min(100,prog+Math.random()*16);fill.style.width=prog+'%';lpct.textContent='Initializing '+Math.floor(prog)+'%';if(prog>=100){clearInterval(iv);setTimeout(()=>{loader.classList.add('done');const t0=performance.now();(function g(){const k=Math.min(1,(performance.now()-t0)/1300);const e=1-Math.pow(1-k,3);const v=0.1+0.9*e;core.scale.set(v,v,v);if(k<1)requestAnimationFrame(g);})();showHero();},300);}},110);
+}
+
+/* ============ WORK VISUALS (change per project) ============ */
+const SCENES=[
+  {tag:"PROJECT 01 / 07",ttl:"The platform that runs private credit",color:"#4ade80"},
+  {tag:"PROJECT 02 / 07",ttl:"Teaching agents to do the busywork",color:"#a78bfa"},
+  {tag:"PROJECT 03 / 07",ttl:"Reading chest X-rays with a CNN",color:"#38bdf8"},
+  {tag:"PROJECT 04 / 07",ttl:"Matching people to the right roles",color:"#4ade80"},
+  {tag:"PROJECT 05 / 07",ttl:"Catching fraud before it lands",color:"#f87171"},
+  {tag:"PROJECT 06 / 07",ttl:"Turning bank data into decisions",color:"#fbbf24"},
+  {tag:"PROJECT 07 / 07",ttl:"Pipelines at city scale",color:"#a78bfa"},
+];
+function visFor(i,color){
+  const W=460,H=300;
+  const frame=(inner)=>`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+    <defs><radialGradient id="vg" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="${color}" stop-opacity="0.18"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></radialGradient></defs>
+    <rect width="${W}" height="${H}" fill="url(#vg)"/>
+    <rect x="40" y="40" width="${W-80}" height="${H-80}" rx="14" fill="#0a1120" stroke="rgba(120,160,220,0.2)" stroke-width="1.5"/>
+    <rect x="40" y="38" width="${W-80}" height="3" rx="2" fill="${color}" opacity="0.9"/>
+    <g transform="translate(58,58)">${inner}</g></svg>`;
+  if(i===0){ // finance: portfolio_positions rising bars
+    let bars='';[60,90,72,110,84,120,100,140].forEach((h,k)=>{bars+=`<rect x="${10+k*40}" y="${178-h}" width="26" height="${h}" rx="3" fill="${color}" opacity="0.9"><animate attributeName="height" from="0" to="${h}" dur="0.7s" begin="${k*0.07}s" fill="freeze"/><animate attributeName="y" from="178" to="${178-h}" dur="0.7s" begin="${k*0.07}s" fill="freeze"/></rect>`;});
+    return frame(`<text x="0" y="0" font-family="monospace" font-size="11" fill="${color}">portfolio_positions ↗</text>${bars}`);}
+  if(i===1){ // AI: neural network
+    const nodes=[[20,30],[20,90],[20,150],[130,60],[130,120],[230,90],[300,40],[300,140]];
+    let edges='';[[0,3],[1,3],[1,4],[2,4],[3,5],[4,5],[5,6],[5,7]].forEach((e,k)=>{const a=nodes[e[0]],b=nodes[e[1]];edges+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${color}" stroke-width="1.4" opacity="0.4"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.2s" begin="${k*0.12}s" repeatCount="indefinite"/></line>`;});
+    let circ=nodes.map((n,k)=>`<circle cx="${n[0]}" cy="${n[1]}" r="7" fill="${color}"><animate attributeName="r" values="5;8.5;5" dur="2s" begin="${k*0.1}s" repeatCount="indefinite"/></circle>`).join('');
+    return frame(`<text x="0" y="0" font-family="monospace" font-size="11" fill="${color}">agent.run()</text>${edges}${circ}`);}
+  if(i===2){let ribs='';for(let k=0;k<5;k++){const y=40+k*30;ribs+=`<path d="M120 ${y} Q172 ${y+22} 224 ${y}" stroke="${color}" stroke-width="2.6" fill="none" opacity="0.7"/>`;}
+    return frame(`<ellipse cx="172" cy="92" rx="64" ry="78" fill="none" stroke="${color}" stroke-width="1.5" opacity="0.4"/><line x1="172" y1="6" x2="172" y2="178" stroke="${color}" stroke-width="1" opacity="0.35"/>${ribs}
+      <rect x="0" y="0" width="344" height="5" fill="${color}" opacity="0.85"><animate attributeName="y" values="0;178;0" dur="3.4s" repeatCount="indefinite"/></rect>
+      <text x="250" y="172" font-family="monospace" font-size="12" fill="#4ade80">90.4%</text>`);}
+  if(i===3){let lines='';[200,250,160,230].forEach((w,k)=>{lines+=`<rect x="0" y="${14+k*24}" width="${w}" height="7" rx="3.5" fill="${k===0?color:'#5a6678'}" opacity="${k===0?0.9:0.5}"><animate attributeName="width" from="0" to="${w}" dur="0.6s" begin="${k*0.12}s" fill="freeze"/></rect>`;});
+    let chk='';for(let k=0;k<3;k++){chk+=`<circle cx="300" cy="${30+k*34}" r="11" fill="none" stroke="${color}" stroke-width="2"/><path d="M294 ${30+k*34} l4 4 l7 -9" stroke="${color}" stroke-width="2.4" fill="none"><animate attributeName="opacity" values="0;1" dur="0.4s" begin="${0.4+k*0.2}s" fill="freeze"/></path>`;}
+    return frame(`${lines}${chk}<rect x="0" y="130" width="160" height="8" rx="4" fill="#1b2740"/><rect x="0" y="130" width="120" height="8" rx="4" fill="${color}"><animate attributeName="width" from="0" to="120" dur="1s" begin="0.3s" fill="freeze"/></rect><text x="180" y="138" font-family="monospace" font-size="11" fill="${color}">82% fit</text>`);}
+  if(i===4){let dots='';for(let k=0;k<34;k++){const x=10+Math.random()*320,y=8+Math.random()*168;const bad=Math.random()<0.16;dots+=`<circle cx="${x}" cy="${y}" r="${bad?4.4:2.8}" fill="${bad?color:'#4ade80'}" opacity="${bad?1:0.5}">${bad?`<animate attributeName="r" values="4.4;6.4;4.4" dur="1.4s" repeatCount="indefinite"/>`:''}<animate attributeName="opacity" values="0;${bad?1:0.5}" dur="0.5s" begin="${k*0.03}s" fill="freeze"/></circle>`;}
+    return frame(`<text x="0" y="0" font-family="monospace" font-size="11" fill="${color}">anomaly_scan · 99.9%</text>${dots}`);}
+  if(i===5){let bars='';[40,62,50,72,46].forEach((h,k)=>{bars+=`<rect x="${200+k*26}" y="${178-h}" width="18" height="${h}" rx="3" fill="${color}" opacity="0.9"><animate attributeName="height" from="0" to="${h}" dur="0.6s" begin="${k*0.08}s" fill="freeze"/><animate attributeName="y" from="178" to="${178-h}" dur="0.6s" begin="${k*0.08}s" fill="freeze"/></rect>`;});
+    return frame(`<circle cx="88" cy="96" r="54" fill="none" stroke="#1c2740" stroke-width="16"/><circle cx="88" cy="96" r="54" fill="none" stroke="${color}" stroke-width="16" stroke-dasharray="340" stroke-dashoffset="130" transform="rotate(-90 88 96)"><animate attributeName="stroke-dashoffset" from="340" to="130" dur="1s" fill="freeze"/></circle><circle cx="88" cy="96" r="54" fill="none" stroke="#38bdf8" stroke-width="16" stroke-dasharray="340" stroke-dashoffset="240" transform="rotate(70 88 96)" opacity="0.85"/>${bars}`);}
+  // i===6 pipelines
+  const nodes=[[20,30],[20,90],[20,150],[130,60],[130,120],[230,90],[300,40],[300,140]];
+  let edges='';[[0,3],[1,3],[1,4],[2,4],[3,5],[4,5],[5,6],[5,7]].forEach((e,k)=>{const a=nodes[e[0]],b=nodes[e[1]];edges+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${color}" stroke-width="1.4" opacity="0.4"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.2s" begin="${k*0.12}s" repeatCount="indefinite"/></line>`;});
+  let circ=nodes.map((n,k)=>`<circle cx="${n[0]}" cy="${n[1]}" r="7" fill="${color}"><animate attributeName="r" values="5;8.5;5" dur="2s" begin="${k*0.1}s" repeatCount="indefinite"/></circle>`).join('');
+  return frame(`<text x="0" y="0" font-family="monospace" font-size="11" fill="${color}">spark.pipeline()</text>${edges}${circ}`);
+}
+const visFrame=document.getElementById('visFrame');
+function applyScene(i){
+  const s=SCENES[i];
+  document.documentElement.style.setProperty('--scene',s.color);
+  document.getElementById('visTag').textContent=s.tag;
+  document.getElementById('visTag').style.color=s.color;
+  const ttl=document.getElementById('visTtl');ttl.style.opacity=0;
+  visFrame.innerHTML=visFor(i,s.color);
+  setTimeout(()=>{ttl.textContent=s.ttl;ttl.style.opacity=1;},160);
+  document.querySelectorAll('.work-tile').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+}
+let curScene=-1;
+const tiles=[...document.querySelectorAll('.work-tile')];
+function updateScene(){
+  const mid=innerHeight/2;let best=0,bd=1e9;
+  tiles.forEach((t,idx)=>{const r=t.getBoundingClientRect();const c=r.top+r.height/2;const d=Math.abs(c-mid);if(d<bd){bd=d;best=idx;}});
+  const si=parseInt(tiles[best].dataset.scene);
+  if(si!==curScene){curScene=si;applyScene(si);}
+}
+applyScene(0);
+
+/* ============ SKILLS ============ */
+const SKILLS=[
+  {h:"Financial Technology",domain:["Private Credit","Investment Operations","Portfolio Management","Trade Lifecycle","Fund Reporting","Capital Markets"]},
+  {h:"Software Engineering",icons:["sharp","dotnet","react","typescript","javascript"],domain:["ASP.NET","REST APIs","Microservices"]},
+  {h:"Data Engineering",icons:["oracle","mongodb"],domain:["SQL Server","ETL","Data Warehousing","Reconciliation","Migration"]},
+  {h:"Artificial Intelligence",icons:["openai","tensorflow","scikitlearn","spacy"],domain:["AI Agents","RAG","Prompt Eng.","NLP","LLM Apps"]},
+  {h:"Cloud & DevOps",icons:["docker","git","github","jira","postman"],domain:["Azure","Azure Data Factory","AWS","CI/CD","Agile"]},
+  {h:"Analytics & Data",icons:["python","r","pandas","numpy","apachespark","tableau"],domain:["Power BI"]},
+];
+/* custom glyphs for tools/domains not in the logo set (brand color on hover) */
+const EXTRA={
+  "sqlserver":{l:"SQL Server",c:"#CC2927",d:"M12 2C7 2 3 3.3 3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5c0-1.7-4-3-9-3zm0 2c4.4 0 7 1.1 7 1.8S16.4 7.6 12 7.6 5 6.5 5 5.8 7.6 4 12 4zm7 4.2V11c0 .7-2.6 1.8-7 1.8S5 11.7 5 11V8.2C6.6 9.2 9.2 9.6 12 9.6s5.4-.4 7-1.4zm0 5V16c0 .7-2.6 1.8-7 1.8S5 16.7 5 16v-2.8c1.6 1 4.2 1.4 7 1.4s5.4-.4 7-1.4z"},
+  "powerbi":{l:"Power BI",c:"#F2C811",d:"M4 21V9h4v12H4zm6 0V3h4v18h-4zm6 0v-8h4v8h-4z"},
+  "azure":{l:"Azure",c:"#0078D4",d:"M13.3 3.5 7 20.5h5.2l1.3-3.7H8.9l4.4-13.3zM14.6 7l-2 5.7h4.3L21 20.5h-6.7l-2.1-6 2.4-7.5z"},
+  "datafactory":{l:"Azure Data Factory",c:"#0078D4",d:"M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.3 6.5 3.6L12 11.5 5.5 7.9 12 4.3zM5 9.3l6 3.3v6.8l-6-3.3V9.3zm14 0v6.8l-6 3.3v-6.8l6-3.3z"},
+  "aws":{l:"AWS",c:"#FF9900",d:"M6.8 10.3c0 .3 0 .5.1.7l.3.6q.05.1.05.2c0 .1-.1.2-.2.3l-.5.3h-.2c-.1 0-.2 0-.3-.1l-.4-.5-.3-.5c-.7.8-1.5 1.2-2.5 1.2-.7 0-1.3-.2-1.7-.6s-.6-1-.6-1.6q0-1.05.75-1.7c.5-.4 1.2-.6 2.1-.6q.45 0 .9.06l.95.2v-.6c0-.6-.1-1-.4-1.3-.3-.2-.7-.3-1.3-.3q-.45 0-.9.1l-.9.3-.3.1h-.15c-.15 0-.2-.1-.2-.3v-.4q0-.2.1-.3l.25-.15a5 5 0 0 1 1.1-.4q.65-.15 1.3-.15c1 0 1.8.2 2.2.7.5.5.7 1.1.7 2.1v2.8zm-3.4 1.3q.45 0 .9-.15.45-.15.8-.55.2-.25.3-.55t.1-.75v-.35l-.75-.15h-.8q-.8 0-1.2.3c-.3.2-.4.5-.4.9s.1.65.3.85.5.25.75.25zm6.8.9c-.15 0-.25 0-.3-.1l-.2-.3-1.9-6.4q-.05-.2-.05-.3c0-.15.05-.2.2-.2h.8q.2 0 .3.1l.15.3 1.4 5.4 1.3-5.4q.05-.2.15-.3.1-.1.3-.1h.65q.2 0 .3.1.1.1.15.3l1.3 5.5 1.4-5.5q.05-.2.15-.3.1-.1.3-.1h.75c.15 0 .2.05.2.2v.15l-.05.15-2 6.4-.2.3q-.1.1-.3.1h-.7q-.2 0-.3-.1-.1-.1-.15-.3l-1.3-5.3-1.3 5.3q-.05.2-.15.3-.1.1-.3.1h-.7zm10.9.2q-.65 0-1.3-.15-.65-.15-1-.35-.2-.1-.25-.2-.05-.1-.05-.25v-.4q0-.25.2-.25h.15l.25.1q.45.2.95.3.5.1 1 .1.8 0 1.2-.3.45-.3.45-.8 0-.35-.2-.55-.25-.25-.85-.45l-1.2-.4q-.9-.3-1.35-.85-.4-.5-.4-1.2 0-.5.2-.9.25-.4.6-.7.4-.3.9-.45.5-.15 1.05-.15.3 0 .55.05l.55.1.5.15.35.15q.15.1.2.2.05.1.05.25v.35q0 .25-.2.25-.1 0-.3-.1-.7-.3-1.55-.3-.7 0-1.1.25-.4.2-.4.65 0 .35.25.6.25.2.9.45l1.15.35q.9.3 1.3.8.4.5.4 1.15 0 .55-.2 1-.25.4-.65.75-.4.3-.95.45-.55.2-1.2.2z"},
+  "etl":{l:"ETL",c:"#38bdf8",d:"M4 5h16M4 5l3-3M4 5l3 3M20 12H4m16 0-3-3m3 3-3 3M4 19h16m-16 0 3-3m-3 3 3 3"},
+  "cicd":{l:"CI/CD",c:"#4ade80",d:"M12 4a8 8 0 1 0 7.5 5.3M12 4V1M12 4l3 2M4 12H1m18.5-2.7L22 8"},
+  "dot":{l:"",c:"#4ade80",d:"M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"}
+};
+function glyph(o,stroke){return `<svg viewBox="0 0 24 24" aria-hidden="true"${stroke?' class="stroke"':''}><path d="${o.d}"/></svg>`;}
+function svgFor(slug){const ic=ICONS[slug];if(!ic)return'';return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ic.d}"/></svg>`;}
+const grid=document.getElementById('skillsGrid');
+// map some domain labels to custom glyphs
+const DOMAIN_ICON={"SQL Server":"sqlserver","Power BI":"powerbi","Azure":"azure","Azure Data Factory":"datafactory","AWS":"aws","ETL":"etl","CI/CD":"cicd"};
+SKILLS.forEach(cat=>{let chips='';
+  (cat.icons||[]).forEach(slug=>{const ic=ICONS[slug];if(!ic)return;chips+=`<div class="logo-chip" data-c="${ic.c}">${svgFor(slug)}<span>${ic.l}</span></div>`;});
+  (cat.domain||[]).forEach(label=>{
+    const ex=DOMAIN_ICON[label]&&EXTRA[DOMAIN_ICON[label]];
+    if(ex){const stroke=["etl","cicd"].includes(DOMAIN_ICON[label]);
+      chips+=`<div class="logo-chip" data-c="${ex.c}" data-stroke="${stroke?1:0}">${glyph(ex,stroke)}<span>${label}</span></div>`;}
+    else{chips+=`<div class="logo-chip dom" data-c="#4ade80">${glyph(EXTRA.dot,false)}<span>${label}</span></div>`;}
+  });
+  grid.insertAdjacentHTML('beforeend',`<div class="skill-card reveal"><h4>◆ ${cat.h}</h4><div class="logo-grid">${chips}</div></div>`);
+});
+document.querySelectorAll('.logo-chip[data-c]').forEach(chip=>{const c=chip.dataset.c,svg=chip.querySelector('svg');const isStroke=svg&&svg.classList.contains('stroke');
+  chip.addEventListener('pointerenter',()=>{if(svg){if(isStroke)svg.style.stroke=c;else svg.style.fill=c;}chip.style.borderColor=c;});
+  chip.addEventListener('pointerleave',()=>{if(svg){svg.style.stroke='';svg.style.fill='';}chip.style.borderColor='';});});
+
+/* ============ RECOMMENDATIONS — short, role-only ============ */
+const RECS=[
+  {q:`Single-handedly led major customizations, including tax and audit compliance. Extremely reliable, delivers quality with minimal support, and inspires everyone around him.`,
+   role:"Solution Architect",ctx:"Managed Jagadeesh directly · 2+ years"},
+  {q:`Exceptional responsiveness and stellar communication. Goes above and beyond on client needs — an invaluable asset to any team.`,
+   role:"Business Strategy & Client Success Lead",ctx:"Worked together across teams"},
+  {q:`Goal-oriented, hardworking, and a true professional. His depth of knowledge lets him deliver sharp, consultative analysis for every client.`,
+   role:"Senior Business Analyst & Consultant",ctx:"Same delivery team"},
+  {q:`Excels at customer satisfaction with quick turnarounds. Handles clients independently and is always reachable — a real asset.`,
+   role:"Senior Lead Business Architect",ctx:"Senior to Jagadeesh"},
+  {q:`Highly skilled and dedicated. His expertise in the leasing domain helped the company immensely — and he's a great person to work with.`,
+   role:"Senior Product Owner",ctx:"Same project team"},
+  {q:`Relentless commitment and resilience under pressure — always gets things done on time. An optimist who lifts the whole team's spirits.`,
+   role:"Business Architect",ctx:"Close collaborator"},
+  {q:`A dedicated team player and strong problem solver with deep product knowledge. Helpful to everyone and a clear asset to the org.`,
+   role:"Senior Business Analyst",ctx:"Same project team"},
+];
+const rail=document.getElementById('recRail');
+RECS.forEach(rc=>{rail.insertAdjacentHTML('beforeend',
+  `<div class="rec-card"><div class="qmark">"</div><blockquote>${rc.q}</blockquote>
+   <div class="rec-who"><div class="role">${rc.role}</div><div class="ctx">${rc.ctx}</div></div></div>`);});
+
+/* recommendations: arrows + drag + dots */
+(function(){
+  const prev=document.getElementById('recPrev'),next=document.getElementById('recNext'),dots=document.getElementById('recDots');
+  const cards=[...rail.children];
+  const step=()=>{const c=rail.querySelector('.rec-card');return c?c.offsetWidth+20:360;};
+  cards.forEach((_,i)=>{const d=document.createElement('div');d.className='rec-dot'+(i===0?' on':'');dots.appendChild(d);});
+  function syncControls(){
+    const max=rail.scrollWidth-rail.clientWidth-2;
+    prev.disabled=rail.scrollLeft<=2;
+    next.disabled=rail.scrollLeft>=max;
+    const idx=Math.round(rail.scrollLeft/step());
+    [...dots.children].forEach((d,i)=>d.classList.toggle('on',i===idx));
+  }
+  prev.addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+  rail.addEventListener('scroll',syncControls,{passive:true});
+  // drag to slide
+  let down=false,sx=0,sl=0,moved=false;
+  rail.addEventListener('pointerdown',e=>{down=true;moved=false;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add('dragging');rail.setPointerCapture(e.pointerId);});
+  rail.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;rail.scrollLeft=sl-dx;});
+  const end=()=>{if(!down)return;down=false;rail.classList.remove('dragging');syncControls();};
+  rail.addEventListener('pointerup',end);rail.addEventListener('pointercancel',end);rail.addEventListener('pointerleave',end);
+  rail.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();}},true);
+  syncControls();
+})();
+
+/* ============ scroll / reveals / counters / nav ============ */
+const nav=document.getElementById('nav'),progress=document.getElementById('progress');
+const bg3d=document.getElementById('bg3d');
+function onScroll(){
+  nav.classList.toggle('scrolled',scrollY>40);
+  const h=document.documentElement.scrollHeight-innerHeight;
+  scrollProg=Math.min(1,scrollY/h);progress.style.width=(scrollProg*100)+'%';
+  // Sphere: full strength across the hero, then fade to a faint background so it never fights content.
+  const vh=innerHeight;
+  const fade=Math.min(1,Math.max(0,(scrollY-vh*0.55)/(vh*0.5)));
+  if(bg3d) bg3d.style.opacity=(1-fade*0.86).toFixed(3); // 1.0 in hero -> ~0.14 below
+  updateScene();
+}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',updateScene);onScroll();
+
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function animateCount(el){const t=parseFloat(el.dataset.target),dec=parseInt(el.dataset.dec||0),suf=el.dataset.suffix||'';let dur=1500,start=null;
+  function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1),e=1-Math.pow(1-p,3);el.innerHTML=(t*e).toFixed(dec)+(suf?'<span class="suf">'+suf+'</span>':'');if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+const mio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.value').forEach(animateCount);mio.unobserve(e.target)}}),{threshold:.4});
+mio.observe(document.getElementById('metrics'));
+
+const mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+const brandTop=document.getElementById('brandTop');
+if(brandTop) brandTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+mb.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+</script>
+</body>
+</html>
