@@ -1,47 +1,36 @@
-# Jagadeesh Chandra Prasad Sunkara — Portfolio
+# Jagadeesh Sunkara — Personal Site
 
-A cinematic, animated personal portfolio for **Jagadeesh Chandra Prasad Sunkara**, Software Engineer in Investment & Financial Technology.
+Personal portfolio and online presence for **Jagadeesh Chandra Prasad Sunkara**, a New York–based software engineer working across fintech, applied AI and data automation.
 
-Single self-contained `index.html` — no build step, no framework. Features a scroll-driven "workstation" scene that changes color and content for each project, an animated experience timeline, skills with hover-highlight tech logos, verbatim LinkedIn recommendations, and a downloadable résumé.
+**Live site:** https://jagadeesh-sunkara.github.io/
 
-**Live demo:** _add your GitHub Pages URL here, e.g. https://jagadeesh-sunkara.github.io/Portfolio/_
+Hand-built HTML, CSS and JavaScript — no framework, no build step, no third-party scripts, no trackers.
 
-## Sections
-- **Hero** — headline, metrics that count up, résumé download.
-- **Experience** — MGG Investment Group, bwtech@UMBC Fellowship, UMBC PM Club, Odessa (full-time + fellowship + leadership).
-- **Projects** — 5 personal projects (Chest X-Ray CNN, Resume AI, Fraud Detection, UK Bank Analysis, Bike Share) shown in a pinned scroll scene that shifts color per project.
-- **Skills** — six capability groups with brand-colored tech logos that light up on hover.
-- **Education** — UMBC (MPS Data Science, 3.97 GPA) and LPU.
-- **Recommendations** — 7 verbatim LinkedIn recommendations in a horizontal rail.
-- **Contact** — email, LinkedIn, GitHub, phone, résumé.
-
-## Tech
-Plain HTML/CSS/JS. Fonts via Google Fonts. Tech logos are inline SVG (Simple Icons, CC0). No external JS libraries — everything runs offline once loaded.
-
-## Run locally
-```bash
-python3 -m http.server 8000
-# visit http://localhost:8000
-```
-
-## Deploy on GitHub Pages
-1. Push these files to your repo.
-2. Settings → Pages → Source: Deploy from a branch → branch `main`, folder `/ (root)` → Save.
-3. Live at `https://<your-username>.github.io/<repo>/` after ~1–2 min.
+## Highlights
+- **Interactive hero** — aurora gradient background, a particle network that reacts to the cursor, a rotating role line, and a working mini terminal (type `help`, `about`, `skills`, `projects`, `contact`, `resume`, `theme`).
+- **About, What I do, Projects, Journey, Skills, Kind words, Contact** — filterable project cards, 3D tilt + spotlight hover, a timeline that draws as you scroll, tabbed skills, an auto-playing recommendations carousel, and a copy-email button.
+- **Light and dark themes** (remembered per visitor), responsive down to phones, keyboard accessible, and respects `prefers-reduced-motion`.
 
 ## Files
 ```
-index.html                      # the whole site
+index.html                      # page content
+assets/site.css                 # theme tokens, layout, animations, responsive rules
+assets/site.js                  # interactions + project / skills / recommendation data
+assets/icons.js                 # tech logos (Simple Icons, CC0)
+assets/boot.js                  # restores theme before paint; keeps content visible if JS fails
 Jagadeesh_Sunkara_Resume.pdf    # downloadable résumé
-README.md
-LICENSE
-.nojekyll                       # tells GitHub Pages to serve files as-is
-.gitignore
+og-image.png                    # social share preview
 ```
 
 ## Editing
-- **Résumé:** replace `Jagadeesh_Sunkara_Resume.pdf` (keep the name, or update the three href links).
-- **LinkedIn:** search `linkedin.com/in/jagadeesh-sunkara` and update if needed.
-- **Recommendations:** edit the `RECS` array in the script near the bottom of `index.html`.
+- **Text:** `index.html`.
+- **Projects, skills, recommendations, terminal replies:** the `PROJECTS`, `SKILLS`, `RECS` and `CMDS` objects in `assets/site.js`.
+- **Résumé:** replace `Jagadeesh_Sunkara_Resume.pdf`, keeping the same name.
+
+## Run locally
+```bash
+python -m http.server 8000
+```
+Then open http://localhost:8000. (Double-clicking `index.html` also works, but a local server matches GitHub Pages exactly.)
 
 © 2026 Jagadeesh Chandra Prasad Sunkara.
